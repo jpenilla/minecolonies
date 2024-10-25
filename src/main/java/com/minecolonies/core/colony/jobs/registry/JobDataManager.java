@@ -18,6 +18,8 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public final class JobDataManager implements IJobDataManager
 {
     @Nullable
@@ -26,7 +28,7 @@ public final class JobDataManager implements IJobDataManager
     {
         final ResourceLocation jobType =
           compound.contains(NbtTagConstants.TAG_JOB_TYPE) ? ResourceLocation.parse(compound.getString(NbtTagConstants.TAG_JOB_TYPE)) : ModJobs.PLACEHOLDER_ID;
-        final IJob<?> job = IJobRegistry.getInstance().get(jobType).produceJob(citizen);
+        final IJob<?> job = Optional.ofNullable(IJobRegistry.getInstance().get(jobType)).map(r -> r.produceJob(citizen)).orElse(null);
 
         if (job != null)
         {

@@ -2,6 +2,7 @@ package com.minecolonies.core.generation.defaults;
 
 import com.minecolonies.api.blocks.AbstractBlockHut;
 import com.minecolonies.api.blocks.ModBlocks;
+import com.minecolonies.api.loot.ModLootConditions;
 import com.minecolonies.core.blocks.BlockMinecoloniesRack;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.HolderLookup;
@@ -42,7 +43,7 @@ public class DefaultBlockLootTableProvider extends BlockLootSubProvider
     @Override
     public void generate()
     {
-        HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+        HolderLookup.RegistryLookup<Enchantment> enchantments = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
         saveBlocks(Arrays.asList(ModBlocks.getHuts()));
 
         saveBlock(ModBlocks.blockHutWareHouse);
@@ -60,7 +61,7 @@ public class DefaultBlockLootTableProvider extends BlockLootSubProvider
         saveBlock(ModBlocks.blockCompostedDirt,
           lootPool -> lootPool.add(AlternativesEntry.alternatives()
                                      .otherwise(LootItem.lootTableItem(ModBlocks.blockCompostedDirt)
-                                                  .when(this.hasSilkTouch()))
+                                                  .when(ModLootConditions.hasSilkTouch(enchantments)))
                                      .otherwise(LootItem.lootTableItem(Blocks.DIRT)
                                                   .when(ExplosionCondition.survivesExplosion()))));
 
@@ -70,7 +71,7 @@ public class DefaultBlockLootTableProvider extends BlockLootSubProvider
         for (Block block : ModBlocks.getCrops())
         {
             final LootItemBlockStatePropertyCondition.Builder cropCondition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CropBlock.AGE, 6));
-            saveBlock(block, lootPool -> lootPool.add(LootItem.lootTableItem(block.asItem()).when(cropCondition).apply(ApplyBonusCount.addBonusBinomialDistributionCount(registrylookup.getOrThrow(Enchantments.FORTUNE), 0.5714286F, 3)).otherwise(LootItem.lootTableItem(block.asItem()))));
+            saveBlock(block, lootPool -> lootPool.add(LootItem.lootTableItem(block.asItem()).when(cropCondition).apply(ApplyBonusCount.addBonusBinomialDistributionCount(enchantments.getOrThrow(Enchantments.FORTUNE), 0.5714286F, 3)).otherwise(LootItem.lootTableItem(block.asItem()))));
         }
 
         // intentionally no drops -- creative only

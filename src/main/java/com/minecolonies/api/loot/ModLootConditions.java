@@ -1,11 +1,22 @@
 package com.minecolonies.api.loot;
 
 import com.minecolonies.api.util.constant.Constants;
+import net.minecraft.advancements.critereon.*;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 import static com.minecolonies.api.util.constant.Constants.MOD_ID;
 
@@ -19,6 +30,43 @@ public final class ModLootConditions
 
     public static final DeferredHolder<LootItemConditionType, LootItemConditionType> entityInBiomeTag;
     public static final DeferredHolder<LootItemConditionType, LootItemConditionType> researchUnlocked;
+
+    // also some convenience definitions for existing conditions; some stolen from BlockLootSubProvider
+    private static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
+    private static final LootItemCondition.Builder HAS_HOE = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.HOES));
+
+    public static LootItemCondition.Builder hasShears()
+    {
+        return HAS_SHEARS;
+    }
+
+    public static LootItemCondition.Builder hasHoe()
+    {
+        return HAS_HOE;
+    }
+
+    public static LootItemCondition.Builder hasSilkTouch(@NotNull final HolderLookup.RegistryLookup<Enchantment> enchantments)
+    {
+        return MatchTool.toolMatches(
+                ItemPredicate.Builder.item()
+                        .withSubPredicate(
+                                ItemSubPredicates.ENCHANTMENTS,
+                                ItemEnchantmentsPredicate.enchantments(
+                                        List.of(new EnchantmentPredicate(enchantments.getOrThrow(Enchantments.SILK_TOUCH), MinMaxBounds.Ints.atLeast(1)))
+                                )
+                        )
+        );
+    }
+
+    public static LootItemCondition.Builder hasShearsOrSilkTouch(@NotNull final HolderLookup.RegistryLookup<Enchantment> enchantments)
+    {
+        return hasShears().or(hasSilkTouch(enchantments));
+    }
+
+    public static LootItemCondition.Builder doesNotHaveShearsOrSilkTouch(@NotNull final HolderLookup.RegistryLookup<Enchantment> enchantments)
+    {
+        return hasShearsOrSilkTouch(enchantments).invert();
+    }
 
     public static void init()
     {
