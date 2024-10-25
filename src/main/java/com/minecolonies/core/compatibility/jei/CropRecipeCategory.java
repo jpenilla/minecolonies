@@ -128,7 +128,7 @@ public class CropRecipeCategory implements IRecipeCategory<CropRecipeCategory.Cr
             final IRecipeSlotBuilder slot = builder.addSlot(RecipeIngredientRole.OUTPUT, x, y)
                     .setBackground(this.chanceSlot, -1, -1)
                     .addItemStacks(drop.getItemStacks());
-            slot.addTooltipCallback(new JobBasedRecipeCategory.LootTableTooltipCallback(drop, recipe.source().getLootTable()));
+            slot.addRichTooltipCallback(new JobBasedRecipeCategory.LootTableTooltipCallback(drop, recipe.source().getLootTable()));
             if (++c >= columns)
             {
                 c = 0;

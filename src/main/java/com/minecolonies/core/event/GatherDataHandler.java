@@ -57,6 +57,7 @@ public class GatherDataHandler
         generator.addProvider(event.includeServer(), new DefaultResearchProvider(generator.getPackOutput(), provider));
         generator.addProvider(event.includeServer(), new DefaultRecipeProvider(generator.getPackOutput(), provider));
         generator.addProvider(event.includeServer(), new DefaultBiomeTagsProvider(generator.getPackOutput(), provider, event.getExistingFileHelper()));
+        generator.addProvider(event.includeServer(), new DefaultLootModifiersProvider(generator.getPackOutput(), provider));
 
         // workers
         generator.addProvider(event.includeServer(), new DefaultAlchemistCraftingProvider(generator.getPackOutput(), provider));
@@ -94,6 +95,7 @@ public class GatherDataHandler
                 new SubProviderEntry(DefaultFishermanLootProvider::new, LootContextParamSets.FISHING),
                 new SubProviderEntry(DefaultRecipeLootProvider::new, LootContextParamSets.ALL_PARAMS),
                 new SubProviderEntry(DefaultSupplyLootProvider::new, LootContextParamSets.CHEST),
+                new SubProviderEntry(DefaultCropsLootProvider::new, LootContextParamSets.BLOCK),
                 new SubProviderEntry(DefaultEntityLootProvider::new, LootContextParamSets.ENTITY),
                 new SubProviderEntry(DefaultBlockLootTableProvider::new, LootContextParamSets.BLOCK)
             ), provider);

@@ -16,8 +16,6 @@ import com.minecolonies.api.entity.ai.statemachine.tickratestatemachine.TickRate
 import com.minecolonies.api.entity.citizen.AbstractEntityCitizen;
 import com.minecolonies.api.entity.other.AbstractFastMinecoloniesEntity;
 import com.minecolonies.api.items.ModTags;
-import com.minecolonies.api.loot.EntityInBiomeTag;
-import com.minecolonies.api.loot.ModLootConditions;
 import com.minecolonies.api.util.*;
 import com.minecolonies.core.MineColonies;
 import com.minecolonies.core.blocks.BlockScarecrow;
@@ -26,7 +24,6 @@ import com.minecolonies.core.blocks.huts.BlockHutTownHall;
 import com.minecolonies.core.client.render.RenderBipedCitizen;
 import com.minecolonies.core.colony.ColonyManager;
 import com.minecolonies.core.colony.buildings.modules.TavernBuildingModule;
-import com.minecolonies.core.colony.crafting.LootTableAnalyzer;
 import com.minecolonies.core.colony.eventhooks.citizenEvents.VisitorSpawnedEvent;
 import com.minecolonies.core.colony.interactionhandling.RecruitmentInteraction;
 import com.minecolonies.core.colony.jobs.AbstractJobGuard;
@@ -38,11 +35,8 @@ import com.minecolonies.core.entity.mobs.EntityMercenary;
 import com.minecolonies.core.items.ItemBannerRallyGuards;
 import com.minecolonies.core.network.messages.client.OpenSuggestionWindowMessage;
 import com.minecolonies.core.util.ChunkDataHelper;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -58,7 +52,6 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BedBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SpawnerBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
@@ -67,12 +60,8 @@ import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
-import net.neoforged.bus.api.Event;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.EventHooks;
 import net.neoforged.neoforge.event.LootTableLoadEvent;
@@ -114,11 +103,6 @@ public class EventHandler
      */
     private static Map<UUID, ChunkPos> playerPositions = new HashMap<>();
 
-    /**
-     * Cache of loot table -> crops.
-     */
-    private static Map<ResourceKey<LootTable>, List<MinecoloniesCropBlock>> cropDrops;
-
     @SubscribeEvent
     public static void onCommandsRegister(final RegisterCommandsEvent event)
     {
@@ -157,56 +141,10 @@ public class EventHandler
         }
     }
 
-    private static void buildCropDrops()
-    {
-        cropDrops = new HashMap<>();
-
-        for (final MinecoloniesCropBlock crop : ModBlocks.getCrops())
-        {
-            for (final Block source : crop.getDroppedFrom())
-            {
-                cropDrops.computeIfAbsent(source.getLootTable(), t -> new ArrayList<>()).add(crop);
-            }
-        }
-    }
-
     @SubscribeEvent
     public static void onLootTableLoad(@NotNull final LootTableLoadEvent event)
     {
-        if (cropDrops == null)
-        {
-            buildCropDrops();
-        }
-
-        final List<MinecoloniesCropBlock> crops = cropDrops.get(event.getName());
-        if (crops != null)
-        {
-            // grass blocks have a lot of crops (both MineColonies and vanilla) so the base drop chance is reduced
-            final float baseChance = event.getName().equals(Blocks.GRASS_BLOCK.getLootTable()) ? 0.001f : 0.01f;
-            // hoes have a boosted chance
-            final float hoeChance = 0.1f;
-
-            for (final MinecoloniesCropBlock crop : crops)
-            {
-                final LootPool.Builder pool = LootPool.lootPool();
-                if (crop.getPreferredBiome() != null)
-                {
-                    pool.when(EntityInBiomeTag.of(crop.getPreferredBiome()));
-                }
-                pool.when(ModLootConditions.HAS_NO_SHEARS_OR_SILK_TOUCH);
-
-                pool.add(AlternativesEntry.alternatives()
-                    .otherwise(LootItem.lootTableItem(crop)
-                            .when(ModLootConditions.HAS_HOE)
-                            .when(LootItemRandomChanceCondition.randomChance(hoeChance)))
-                    .otherwise(LootItem.lootTableItem(crop)
-                            .when(LootItemRandomChanceCondition.randomChance(baseChance))));
-
-                event.getTable().addPool(pool.build());
-            }
-        }
-
-        if (event.getName().equals(BuiltInLootTables.SIMPLE_DUNGEON))
+        if (event.getName().equals(BuiltInLootTables.SIMPLE_DUNGEON.location()))
         {
             final LootPool.Builder pool = LootPool.lootPool();
             for (final MinecoloniesCropBlock crop : ModBlocks.getCrops())
