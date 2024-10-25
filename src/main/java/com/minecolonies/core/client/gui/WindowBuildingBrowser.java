@@ -2,7 +2,7 @@ package com.minecolonies.core.client.gui;
 
 import com.google.common.collect.ImmutableList;
 import com.ldtteam.blockui.Pane;
-import com.ldtteam.blockui.controls.ImageRepeatable;
+import com.ldtteam.blockui.controls.Image;
 import com.ldtteam.blockui.controls.Text;
 import com.ldtteam.blockui.views.ScrollingList;
 import com.ldtteam.structurize.api.Log;
@@ -133,7 +133,7 @@ public class WindowBuildingBrowser extends AbstractWindowSkeleton
         }
         else if (futureBuildings != null)
         {
-            final ImageRepeatable progress = findPaneOfTypeByID("progress", ImageRepeatable.class);
+            final Image progress = findPaneOfTypeByID("progress", Image.class);
             final int fullWidth = findPaneOfTypeByID("loading", Text.class).getWidth();
             final double progressValue = currentProgress.doubleValue() / totalProgress;
             final int progressWidth = (int) Math.round(progressValue * fullWidth);
@@ -144,7 +144,7 @@ public class WindowBuildingBrowser extends AbstractWindowSkeleton
     private void displayBuildings()
     {
         findPaneOfTypeByID("loading", Text.class).hide();
-        findPaneOfTypeByID("progress", ImageRepeatable.class).hide();
+        findPaneOfTypeByID("progress", Image.class).hide();
 
         final List<BuildingInfo> visibleBuildings = mc.player.isCreative() ? buildings
                 : buildings.stream().filter(b -> !b.isInvisible()).toList();
