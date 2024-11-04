@@ -365,10 +365,10 @@ public abstract class AbstractFastMinecoloniesEntity extends PathfinderMob imple
     public void remove(@NotNull final RemovalReason reason)
     {
         super.remove(reason);
-        final PlayerTeam playersTeam = level.getScoreboard().getPlayersTeam(getScoreboardName());
+        final PlayerTeam playersTeam = level().getScoreboard().getPlayersTeam(getScoreboardName());
         if (playersTeam != null)
         {
-            level.getScoreboard().removePlayerFromTeam(getScoreboardName(), playersTeam);
+            level().getScoreboard().removePlayerFromTeam(getScoreboardName(), playersTeam);
         }
     }
 
