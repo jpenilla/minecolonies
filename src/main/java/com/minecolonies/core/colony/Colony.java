@@ -375,7 +375,7 @@ public class Colony implements IColony
             this.colonyFlag = new BannerPatternLayers.Builder().add(Utils.getRegistryValue(BannerPatterns.BASE, world), DyeColor.WHITE).build();
             this.dimensionId = world.dimension();
             onWorldLoad(world);
-            checkOrCreateTeam(world, getTeamName(), false);
+            checkOrCreateTeam(world, IColony.getTeamName(world, id), false);
         }
 
         colonyStateMachine = new TickRateStateMachine<>(INACTIVE, e ->
@@ -640,7 +640,7 @@ public class Colony implements IColony
     public PlayerTeam getTeam()
     {
         // This getter will create the team if it doesn't exist. Could do something different though in the future.
-        return checkOrCreateTeam(world, getTeamName(), false);
+        return checkOrCreateTeam(world, IColony.getTeamName(world, id), false);
     }
 
     /**
