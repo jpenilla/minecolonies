@@ -249,7 +249,7 @@ public abstract class AbstractEntityCitizen extends AbstractCivilianEntity imple
         {
             return null;
         }
-        return citizenColonyHandler.getTeam(level);
+        return citizenColonyHandler.getTeam(level());
     }
 
     /**
