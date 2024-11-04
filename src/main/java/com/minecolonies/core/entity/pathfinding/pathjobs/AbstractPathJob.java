@@ -1691,7 +1691,7 @@ public abstract class AbstractPathJob implements Callable<Path>, IPathJob
 
             for (final ServerPlayer player : debugWatchers)
             {
-                Network.getNetwork().sendToPlayer(message, player);
+                message.sendToPlayer(player);
             }
         }
     }

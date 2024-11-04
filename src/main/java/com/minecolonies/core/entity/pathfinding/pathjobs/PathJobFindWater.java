@@ -88,7 +88,7 @@ public class PathJobFindWater extends AbstractPathJob
                 }
             }
 
-            final PathJobFindFishingPos job = new PathJobFindFishingPos(getActualWorld(), world, new BlockPos(n.x, n.y, n.z), hutLocation, 10);
+            final PathJobFindFishingPos job = new PathJobFindFishingPos(getActualWorld(), world, new BlockPos(n.x, n.y, n.z), hutLocation, 10, entity);
             job.setPathingOptions(getPathingOptions());
             final Path path = job.search();
             if (path != null && path.canReach())

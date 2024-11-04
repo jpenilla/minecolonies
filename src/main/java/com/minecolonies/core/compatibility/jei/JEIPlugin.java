@@ -164,7 +164,7 @@ public class JEIPlugin implements IModPlugin
         registration.addRecipeCatalyst(ModBlocks.blockBarrel, ModRecipeTypes.COMPOSTING);
         registration.addRecipeCatalyst(ModBlocks.blockHutComposter, ModRecipeTypes.COMPOSTING);
         registration.addRecipeCatalyst(ModBlocks.blockHutFisherman, ModRecipeTypes.FISHING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.blockHutFlorist), ModRecipeTypes.FLOWERS);
+        registration.addRecipeCatalyst(ModBlocks.blockHutFlorist, ModRecipeTypes.FLOWERS);
 
         for (final JobBasedRecipeCategory<?> category : this.categories)
         {

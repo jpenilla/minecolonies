@@ -97,7 +97,7 @@ public class FloristRecipeCategory extends JobBasedRecipeCategory<FloristRecipeC
         super.draw(recipe, recipeSlotsView, stack, mouseX, mouseY);
 
         final BlockState block = ModBlocks.blockCompostedDirt.defaultBlockState();
-        RenderHelper.renderBlock(stack.pose(), block, WIDTH - 38, CITIZEN_Y - 20, 100, -30F, 30F, 16F);
+        RenderHelper.renderBlock(stack, block, WIDTH - 38, CITIZEN_Y - 20, 100, -30F, 30F, 16F);
     }
 
     @NotNull

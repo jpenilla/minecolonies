@@ -64,7 +64,7 @@ public class PathfindingUtils
 
         for (final ServerPlayer player : players)
         {
-            Network.getNetwork().sendToPlayer(message, player);
+            message.sendToPlayer(player);
         }
     }
 

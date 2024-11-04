@@ -1083,8 +1083,8 @@ public abstract class AbstractBuilding extends AbstractBuildingContainer
                 final BlockPos currentPos = getPosition().relative(dir);
                 final BlockState hereState = colony.getWorld().getBlockState(currentPos);
                 // Check air here and air above.
-                if ((!hereState.getBlock().properties.hasCollision || hereState.is(BlockTags.WOOL_CARPETS))
-                      && !colony.getWorld().getBlockState(currentPos.above()).getBlock().properties.hasCollision
+                if ((!hereState.getBlock().properties().hasCollision || hereState.is(BlockTags.WOOL_CARPETS))
+                      && !colony.getWorld().getBlockState(currentPos.above()).getBlock().properties().hasCollision
                       && BlockUtils.isAnySolid(colony.getWorld().getBlockState(currentPos.below())))
                 {
                     int localScore = BEST_STANDING_SCORE;

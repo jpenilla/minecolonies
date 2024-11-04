@@ -15,11 +15,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraft.world.level.portal.DimensionTransition;
 import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.scores.PlayerTeam;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Special abstract minecolonies mob that overrides laggy vanilla behaviour.
@@ -299,6 +301,74 @@ public abstract class AbstractFastMinecoloniesEntity extends PathfinderMob imple
     }
 
     /**
+     * Get the team this entity is assigned to.
+     *
+     * @return the team instance.
+     */
+    @Nullable
+    protected abstract PlayerTeam getAssignedTeam();
+
+    @Override
+    @Nullable
+    public final PlayerTeam getTeam()
+    {
+        final PlayerTeam assignedTeam = getAssignedTeam();
+        registerToTeamInternal(assignedTeam);
+        return assignedTeam;
+    }
+
+    /**
+     * Register this entity to its own assigned team.
+     */
+    public void registerToTeam()
+    {
+        registerToTeamInternal(getAssignedTeam());
+    }
+
+    /**
+     * Internal method for team registration.
+     *
+     * @param team the team to register to.
+     */
+    private void registerToTeamInternal(@Nullable final PlayerTeam team)
+    {
+        if (team != null && !isInTeam(team))
+        {
+            level().getScoreboard().addPlayerToTeam(getScoreboardName(), team);
+        }
+    }
+
+    /**
+     * Remove the entity from its own assigned team.
+     */
+    public void removeFromTeam()
+    {
+        final PlayerTeam team = getAssignedTeam();
+        if (team != null && isInTeam(team))
+        {
+            level().getScoreboard().removePlayerFromTeam(getScoreboardName(), team);
+        }
+    }
+
+    /**
+     * Check if the current entity is assigned to the provided team.
+     *
+     * @param team the input team.
+     * @return true if so.
+     */
+    private boolean isInTeam(@NotNull final PlayerTeam team)
+    {
+        return Objects.equals(level().getScoreboard().getPlayersTeam(getScoreboardName()), team);
+    }
+
+    @Override
+    public void remove(@NotNull final RemovalReason reason)
+    {
+        super.remove(reason);
+        removeFromTeam();
+    }
+
+    /**
      * Static Byte values to avoid frequent autoboxing
      */
     final Byte ENABLE  = 2;
@@ -326,9 +396,9 @@ public abstract class AbstractFastMinecoloniesEntity extends PathfinderMob imple
     @Override
     public void knockback(double power, double xRatio, double zRatio)
     {
-        if (level.getGameTime() - lastKnockBack > 20 * 3)
+        if (level().getGameTime() - lastKnockBack > 20 * 3)
         {
-            lastKnockBack = level.getGameTime();
+            lastKnockBack = level().getGameTime();
             super.knockback(power, xRatio, zRatio);
         }
     }
