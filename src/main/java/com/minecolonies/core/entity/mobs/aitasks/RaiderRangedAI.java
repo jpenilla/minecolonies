@@ -7,7 +7,6 @@ import com.minecolonies.api.entity.mobs.AbstractEntityRaiderMob;
 import com.minecolonies.api.entity.mobs.ICustomAttackSound;
 import com.minecolonies.api.entity.mobs.IRangedMobEntity;
 import com.minecolonies.api.util.EntityUtils;
-import com.minecolonies.core.MineColonies;
 import com.minecolonies.core.entity.ai.combat.AttackMoveAI;
 import com.minecolonies.core.entity.ai.combat.CombatUtils;
 import com.minecolonies.core.entity.citizen.EntityCitizen;
@@ -31,12 +30,12 @@ public class RaiderRangedAI<T extends AbstractEntityRaiderMob & IThreatTableEnti
     /**
      * Max delay between attacks is 3s, aka 60 ticks.
      */
-    private static final int MAX_ATTACK_DELAY = 60;
+    private static final int ATTACK_DELAY = 60;
 
     /**
-     * Min delay between attacks is 1s, aka 20 ticks.
+     * How many ticks we activate the bow before shooting
      */
-    private static final int MIN_ATTACK_DELAY = 20;
+    private static final int BOW_HOLDING_DELAY = 40;
 
     /**
      * Difficulty level at which arrows do pierce
@@ -58,7 +57,7 @@ public class RaiderRangedAI<T extends AbstractEntityRaiderMob & IThreatTableEnti
      */
     private static final double PITCH_MULTIPLIER = 0.4;
     private static final double BASE_PITCH       = 0.8D;
-    private static final double PITCH_DIVIDER    = 1.0D;
+    private static final double PITCH_DIVIDER = 1.0D;
 
     /**
      * Counter for flying time
@@ -123,6 +122,7 @@ public class RaiderRangedAI<T extends AbstractEntityRaiderMob & IThreatTableEnti
 
         // Visuals
         user.swing(InteractionHand.MAIN_HAND);
+        user.stopUsingItem();
         SoundEvent attackSound = SoundEvents.SKELETON_SHOOT;
         if (arrowEntity instanceof ICustomAttackSound)
         {
@@ -154,9 +154,32 @@ public class RaiderRangedAI<T extends AbstractEntityRaiderMob & IThreatTableEnti
         {
             return 10;
         }
-// TODO: config is included in own difficulty
-        return (int) (Math.max(MIN_ATTACK_DELAY, MAX_ATTACK_DELAY - MineColonies.getConfig().getServer().raidDifficulty.get() * 4 * user.getDifficulty())
-                        * user.getAttackDelayModifier());
+
+        return ATTACK_DELAY;
+    }
+
+    @Override
+    public boolean canAttack()
+    {
+        if (nextAttackTime - BOW_HOLDING_DELAY >= user.level().getGameTime() && !user.isUsingItem() && !user.getMainHandItem().isEmpty())
+        {
+            user.startUsingItem(InteractionHand.MAIN_HAND);
+        }
+
+        return true;
+    }
+
+    @Override
+    protected boolean checkForTarget()
+    {
+        final boolean validTarget = super.checkForTarget();
+
+        if (!validTarget && user.isUsingItem())
+        {
+            user.stopUsingItem();
+        }
+
+        return validTarget;
     }
 
     @Override
