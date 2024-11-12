@@ -1627,7 +1627,7 @@ public abstract class AbstractPathJob implements Callable<Path>, IPathJob
      *
      * @param node
      */
-    private void handleDebugOptions(final MNode node)
+    protected void handleDebugOptions(final MNode node)
     {
         if (debugDrawEnabled)
         {

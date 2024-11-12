@@ -686,8 +686,8 @@ public class RaidManager implements IRaiderManager
         return 1 + Math.min(MineColonies.getConfig().getServer().maxRaiders.get(),
           (int) ((raidLevel / SPAWN_MODIFIER)
                    * getRaidDifficultyModifier()
-                   * (1.0 + colony.getMessagePlayerEntities().size() * INCREASE_PER_PLAYER)
-                   * ((ColonyConstants.rand.nextDouble() * 0.5d) + 0.75)));
+                   * (1.0 + nearbyColonyPlayers * INCREASE_PER_PLAYER)
+              * ((ColonyConstants.rand.nextDouble() * 0.3) + 0.85)));
     }
 
     @Override
