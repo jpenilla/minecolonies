@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:butter"
-            ]
+            "items": "minecolonies:butter"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_butter",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_butter"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:plain_cheesecake"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

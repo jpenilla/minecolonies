@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:garlic"
-            ]
+            "items": "minecolonies:garlic"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_garlic",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_garlic"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:baked_salmon"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

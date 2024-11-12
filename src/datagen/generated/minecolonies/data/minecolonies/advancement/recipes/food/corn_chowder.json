@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:corn"
-            ]
+            "items": "minecolonies:corn"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_corn",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_corn"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:corn_chowder"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

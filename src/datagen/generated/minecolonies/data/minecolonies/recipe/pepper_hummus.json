@@ -1,39 +1,25 @@
 {
-<<<<<<< HEAD:src/datagen/generated/minecolonies/data/minecolonies/crafterrecipes/chef/pepper_hummus.json
-  "type": "recipe",
-  "crafter": "chef_crafting",
-  "inputs": [
-=======
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
->>>>>>> 92b1177442 (Cook rework (#10368)):src/datagen/generated/minecolonies/data/minecolonies/recipes/pepper_hummus.json
     {
-      "id": "minecolonies:bell_pepper"
+      "item": "minecolonies:bell_pepper"
     },
     {
-      "id": "minecolonies:bell_pepper"
+      "item": "minecolonies:bell_pepper"
     },
     {
-      "id": "minecolonies:garlic"
+      "item": "minecolonies:garlic"
     },
     {
-      "id": "minecolonies:chickpea"
+      "item": "minecolonies:chickpea"
     },
     {
-      "id": "minecolonies:chickpea"
+      "item": "minecolonies:chickpea"
     }
   ],
-<<<<<<< HEAD:src/datagen/generated/minecolonies/data/minecolonies/crafterrecipes/chef/pepper_hummus.json
-  "intermediate": "minecraft:air",
-  "min-building-level": 1,
   "result": {
     "count": 2,
     "id": "minecolonies:pepper_hummus"
-=======
-  "result": {
-    "count": 2,
-    "item": "minecolonies:pepper_hummus"
->>>>>>> 92b1177442 (Cook rework (#10368)):src/datagen/generated/minecolonies/data/minecolonies/recipes/pepper_hummus.json
   }
 }

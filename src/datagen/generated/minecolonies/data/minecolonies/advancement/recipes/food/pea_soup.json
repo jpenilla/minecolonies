@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:peas"
-            ]
+            "items": "minecolonies:peas"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_peas",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_peas"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:pea_soup"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

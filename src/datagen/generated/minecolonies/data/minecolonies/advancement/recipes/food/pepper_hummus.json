@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:chickpea"
-            ]
+            "items": "minecolonies:chickpea"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_chickpea",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_chickpea"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:pepper_hummus"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

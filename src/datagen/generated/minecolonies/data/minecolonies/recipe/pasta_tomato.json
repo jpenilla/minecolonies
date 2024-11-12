@@ -3,32 +3,26 @@
   "category": "misc",
   "ingredients": [
     {
-      "id": "minecolonies:raw_noodle"
+      "item": "minecolonies:raw_noodle"
     },
     {
-      "id": "minecolonies:tomato"
+      "item": "minecolonies:tomato"
     },
     {
-      "id": "minecolonies:tomato"
+      "item": "minecolonies:tomato"
     },
     {
-      "id": "minecolonies:onion"
+      "item": "minecolonies:onion"
     },
     {
-      "id": "minecraft:bowl"
+      "item": "minecraft:bowl"
     },
     {
-      "id": "minecolonies:garlic"
+      "item": "minecolonies:garlic"
     }
   ],
-<<<<<<< HEAD:src/datagen/generated/minecolonies/data/minecolonies/crafterrecipes/chef/pasta_tomato.json
-  "intermediate": "minecraft:air",
-  "min-building-level": 1,
   "result": {
+    "count": 1,
     "id": "minecolonies:pasta_tomato"
-=======
-  "result": {
-    "item": "minecolonies:pasta_tomato"
->>>>>>> 92b1177442 (Cook rework (#10368)):src/datagen/generated/minecolonies/data/minecolonies/recipes/pasta_tomato.json
   }
 }

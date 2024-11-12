@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:rice"
-            ]
+            "items": "minecolonies:rice"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_rice",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_rice"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:cooked_rice"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:mutton"
-            ]
+            "items": "minecraft:mutton"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_mutton",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_mutton"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:mutton_dinner"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:butternut_squash"
-            ]
+            "items": "minecolonies:butternut_squash"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_squash",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_squash"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:squash_soup"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

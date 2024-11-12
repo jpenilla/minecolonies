@@ -11,9 +11,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:yogurt"
-            ]
+            "items": "minecolonies:yogurt"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_yogurt",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_yogurt"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:yogurt_with_berries"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

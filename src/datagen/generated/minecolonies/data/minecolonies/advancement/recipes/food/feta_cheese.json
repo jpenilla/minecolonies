@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:large_milk_bottle"
-            ]
+            "items": "minecolonies:large_milk_bottle"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_milk",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_milk"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:feta_cheese"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

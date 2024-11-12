@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:soybean"
-            ]
+            "items": "minecolonies:soybean"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_soy",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_soy"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:soysauce"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

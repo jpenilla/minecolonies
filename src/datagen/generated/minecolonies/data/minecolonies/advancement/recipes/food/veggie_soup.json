@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:eggplant"
-            ]
+            "items": "minecolonies:eggplant"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_eggplant",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_eggplant"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:veggie_soup"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

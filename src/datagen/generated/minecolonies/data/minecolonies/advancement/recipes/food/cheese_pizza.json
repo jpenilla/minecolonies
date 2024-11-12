@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:cheddar_cheese"
-            ]
+            "items": "minecolonies:cheddar_cheese"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_cheddar",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cheddar"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:cheese_pizza"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:mint"
-            ]
+            "items": "minecolonies:mint"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_mint",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_mint"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:mint_jelly"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

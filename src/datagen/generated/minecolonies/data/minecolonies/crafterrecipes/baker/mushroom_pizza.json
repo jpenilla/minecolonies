@@ -3,34 +3,36 @@
   "crafter": "baker_crafting",
   "inputs": [
     {
-      "item": "minecolonies:durum"
+      "id": "minecolonies:durum"
     },
     {
-      "item": "minecolonies:durum"
+      "id": "minecolonies:durum"
     },
     {
-      "item": "minecolonies:durum"
+      "id": "minecolonies:durum"
     },
     {
-      "item": "minecolonies:tomato"
+      "id": "minecolonies:tomato"
     },
     {
-      "item": "minecolonies:tomato"
+      "id": "minecolonies:tomato"
     },
     {
-      "item": "minecolonies:garlic"
+      "id": "minecolonies:garlic"
     },
     {
-      "item": "minecolonies:cheddar_cheese"
+      "id": "minecolonies:cheddar_cheese"
     },
     {
-      "item": "minecraft:brown_mushroom"
+      "id": "minecraft:brown_mushroom"
     },
     {
-      "item": "minecraft:brown_mushroom"
+      "id": "minecraft:brown_mushroom"
     }
   ],
   "intermediate": "minecraft:air",
   "min-building-level": 4,
-  "result": "minecolonies:mushroom_pizza"
+  "result": {
+    "id": "minecolonies:mushroom_pizza"
+  }
 }

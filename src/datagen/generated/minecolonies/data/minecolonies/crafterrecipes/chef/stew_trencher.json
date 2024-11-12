@@ -16,14 +16,9 @@
     }
   ],
   "intermediate": "minecraft:air",
-<<<<<<< HEAD
-  "min-building-level": 1,
+  "min-building-level": 4,
   "result": {
     "id": "minecolonies:stew_trencher"
-  }
-=======
-  "min-building-level": 4,
-  "result": "minecolonies:stew_trencher",
+  },
   "show-tooltip": true
->>>>>>> 92b1177442 (Cook rework (#10368))
 }

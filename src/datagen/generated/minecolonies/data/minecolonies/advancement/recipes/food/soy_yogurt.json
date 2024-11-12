@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:large_soy_milk_bottle"
-            ]
+            "items": "minecolonies:large_soy_milk_bottle"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_soy_milk",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_soy_milk"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:soy_yogurt"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

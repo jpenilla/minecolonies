@@ -19,14 +19,9 @@
     }
   ],
   "intermediate": "minecraft:air",
-<<<<<<< HEAD
-  "min-building-level": 1,
+  "min-building-level": 4,
   "result": {
     "id": "minecolonies:hand_pie"
-  }
-=======
-  "min-building-level": 4,
-  "result": "minecolonies:hand_pie",
+  },
   "show-tooltip": true
->>>>>>> 92b1177442 (Cook rework (#10368))
 }

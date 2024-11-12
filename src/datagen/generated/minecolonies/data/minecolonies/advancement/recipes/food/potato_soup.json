@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:potato"
-            ]
+            "items": "minecraft:potato"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_potato",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_potato"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:potato_soup"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

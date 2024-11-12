@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:nether_pepper"
-            ]
+            "items": "minecolonies:nether_pepper"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_nether_pepper",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_nether_pepper"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:spicy_grilled_chicken"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

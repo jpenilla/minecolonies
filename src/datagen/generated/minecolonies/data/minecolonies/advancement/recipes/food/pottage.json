@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecolonies:durum"
-            ]
+            "items": "minecolonies:durum"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_durum",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_durum"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecolonies:pottage"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
