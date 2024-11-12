@@ -31,8 +31,14 @@
     }
   ],
   "intermediate": "minecraft:air",
+<<<<<<< HEAD
   "min-building-level": 1,
   "result": {
     "id": "minecolonies:lamb_stew"
   }
+=======
+  "min-building-level": 4,
+  "result": "minecolonies:lamb_stew",
+  "show-tooltip": true
+>>>>>>> 92b1177442 (Cook rework (#10368))
 }

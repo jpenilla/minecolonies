@@ -2,10 +2,14 @@
   "type": "recipe",
   "additional-output": [
     {
+<<<<<<< HEAD
       "id": "minecraft:rotten_flesh"
     },
     {
       "id": "minecraft:gold_nugget"
+=======
+      "item": "minecraft:rotten_flesh"
+>>>>>>> 92b1177442 (Cook rework (#10368))
     },
     {
       "id": "minecraft:netherrack"
@@ -86,7 +90,14 @@
       "id": "minecraft:verdant_froglight"
     },
     {
+<<<<<<< HEAD
       "id": "minecraft:magma_cream"
+=======
+      "item": "minecraft:verdant_froglight"
+    },
+    {
+      "item": "minecraft:magma_cream"
+>>>>>>> 92b1177442 (Cook rework (#10368))
     }
   ],
   "crafter": "netherworker_custom",

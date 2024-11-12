@@ -405,11 +405,20 @@
     "item": "minecolonies:ancienttome"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:enchantments",
       "minecraft:max_damage",
       "minecraft:repair_cost"
     ],
+=======
+    "item": "minecolonies:apple_pie"
+  },
+  {
+    "item": "minecolonies:baked_salmon"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:banner_rally_guards"
   },
   {
@@ -596,7 +605,7 @@
     "item": "minecolonies:blockwaypoint"
   },
   {
-    "item": "minecolonies:bread_dough"
+    "item": "minecolonies:borscht"
   },
   {
     "checkednbtkeys": [
@@ -609,9 +618,15 @@
     "item": "minecolonies:butter"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
+=======
+    "item": "minecolonies:butternut_squash"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:cabbage"
   },
   {
@@ -621,13 +636,23 @@
     "item": "minecolonies:cabochis"
   },
   {
-    "item": "minecolonies:cake_batter"
+    "item": "minecolonies:cheddar_cheese"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
     "item": "minecolonies:cheddar_cheese"
+=======
+    "item": "minecolonies:cheese_pizza"
+  },
+  {
+    "item": "minecolonies:cheese_ravioli"
+  },
+  {
+    "item": "minecolonies:chicken_broth"
+>>>>>>> 92b1177442 (Cook rework (#10368))
   },
   {
     "checkednbtkeys": [
@@ -676,7 +701,16 @@
     "item": "minecolonies:cooked_rice"
   },
   {
-    "item": "minecolonies:cookie_dough"
+    "item": "minecolonies:corn"
+  },
+  {
+    "item": "minecolonies:corn_chowder"
+  },
+  {
+    "item": "minecolonies:cornmeal"
+  },
+  {
+    "item": "minecolonies:creamcheese"
   },
   {
     "item": "minecolonies:decorationcontroller"
@@ -688,9 +722,15 @@
     "item": "minecolonies:durum"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
+=======
+    "item": "minecolonies:eggdrop_soup"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:eggplant"
   },
   {
@@ -712,9 +752,18 @@
     "item": "minecolonies:firearrow"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
+=======
+    "item": "minecolonies:fish_dinner"
+  },
+  {
+    "item": "minecolonies:fish_n_chips"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:flatbread"
   },
   {
@@ -755,9 +804,18 @@
     "item": "minecolonies:iron_scimitar"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
+=======
+    "item": "minecolonies:kebab"
+  },
+  {
+    "item": "minecolonies:kimchi"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:lamb_stew"
   },
   {
@@ -791,6 +849,9 @@
     "item": "minecolonies:manchet_dough"
   },
   {
+    "item": "minecolonies:meat_ravioli"
+  },
+  {
     "item": "minecolonies:mediumquarry"
   },
   {
@@ -798,6 +859,18 @@
       "minecraft:food"
     ],
     "item": "minecolonies:milky_bread"
+  },
+  {
+    "item": "minecolonies:mint"
+  },
+  {
+    "item": "minecolonies:mint_jelly"
+  },
+  {
+    "item": "minecolonies:mint_tea"
+  },
+  {
+    "item": "minecolonies:mintchoco_cheesecake"
   },
   {
     "item": "minecolonies:mistletoe"
@@ -812,9 +885,21 @@
     "item": "minecolonies:muffin_dough"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
+=======
+    "item": "minecolonies:mushroom_pizza"
+  },
+  {
+    "item": "minecolonies:mutton_dinner"
+  },
+  {
+    "item": "minecolonies:nether_pepper"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:onion"
   },
   {
@@ -830,12 +915,27 @@
     "item": "minecolonies:pasta_tomato"
   },
   {
+<<<<<<< HEAD
+=======
+    "item": "minecolonies:pea_soup"
+  },
+  {
+    "item": "minecolonies:peas"
+  },
+  {
+    "item": "minecolonies:pepper_hummus"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "checkednbtkeys": [
       "minecraft:enchantments",
       "minecraft:max_damage",
       "minecraft:repair_cost"
     ],
     "item": "minecolonies:pharaoscepter"
+  },
+  {
+    "item": "minecolonies:pierogi"
   },
   {
     "checkednbtkeys": [
@@ -900,6 +1000,9 @@
     "item": "minecolonies:pita_hummus"
   },
   {
+    "item": "minecolonies:plain_cheesecake"
+  },
+  {
     "checkednbtkeys": [
       "minecraft:attribute_modifiers",
       "minecraft:dyed_color"
@@ -928,19 +1031,28 @@
     "item": "minecolonies:plate_armor_legs"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
+=======
+    "item": "minecolonies:polenta"
+  },
+  {
+    "item": "minecolonies:potato_soup"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:pottage"
   },
   {
     "item": "minecolonies:questlog"
   },
   {
-    "item": "minecolonies:raw_noodle"
+    "item": "minecolonies:ramen"
   },
   {
-    "item": "minecolonies:raw_pumpkin_pie"
+    "item": "minecolonies:raw_noodle"
   },
   {
     "item": "minecolonies:resourcescroll"
@@ -992,6 +1104,9 @@
       "minecraft:repair_cost"
     ],
     "item": "minecolonies:scepterpermission"
+  },
+  {
+    "item": "minecolonies:schnitzel"
   },
   {
     "item": "minecolonies:scroll_area_tp"
@@ -1046,6 +1161,9 @@
     "item": "minecolonies:soybean"
   },
   {
+    "item": "minecolonies:soysauce"
+  },
+  {
     "checkednbtkeys": [
       "minecraft:enchantments",
       "minecraft:max_damage",
@@ -1054,9 +1172,24 @@
     "item": "minecolonies:spear"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
+=======
+    "item": "minecolonies:spicy_eggplant"
+  },
+  {
+    "item": "minecolonies:spicy_grilled_chicken"
+  },
+  {
+    "item": "minecolonies:squash_soup"
+  },
+  {
+    "item": "minecolonies:steak_dinner"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:stew_trencher"
   },
   {
@@ -1090,9 +1223,15 @@
     "item": "minecolonies:sushi_roll"
   },
   {
+<<<<<<< HEAD
     "checkednbtkeys": [
       "minecraft:food"
     ],
+=======
+    "item": "minecolonies:tacos"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecolonies:tofu"
   },
   {
@@ -1102,6 +1241,30 @@
     "item": "minecolonies:tomato"
   },
   {
+<<<<<<< HEAD
+=======
+    "item": "minecolonies:tortillas"
+  },
+  {
+    "item": "minecolonies:veggie_quiche"
+  },
+  {
+    "item": "minecolonies:veggie_ravioli"
+  },
+  {
+    "item": "minecolonies:veggie_soup"
+  },
+  {
+    "item": "minecolonies:yogurt"
+  },
+  {
+    "item": "minecolonies:yogurt_with_berries"
+  },
+  {
+    "item": "minecraft:acacia_boat"
+  },
+  {
+>>>>>>> 92b1177442 (Cook rework (#10368))
     "item": "minecraft:acacia_button"
   },
   {

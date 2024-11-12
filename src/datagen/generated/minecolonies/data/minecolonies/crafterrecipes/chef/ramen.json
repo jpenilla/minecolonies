@@ -1,0 +1,42 @@
+{
+  "type": "recipe",
+  "crafter": "chef_crafting",
+  "inputs": [
+    {
+<<<<<<< HEAD:src/datagen/generated/minecolonies/data/minecolonies/crafterrecipes/chef/pasta_plain.json
+      "id": "minecolonies:raw_noodle"
+    },
+    {
+      "id": "minecolonies:butter"
+    },
+    {
+      "id": "minecraft:bowl"
+    },
+    {
+      "id": "minecolonies:garlic"
+    }
+  ],
+  "intermediate": "minecraft:air",
+  "min-building-level": 1,
+  "result": {
+    "id": "minecolonies:pasta_plain"
+  }
+=======
+      "item": "minecolonies:garlic"
+    },
+    {
+      "item": "minecolonies:onion"
+    },
+    {
+      "item": "minecolonies:raw_noodle"
+    },
+    {
+      "item": "minecolonies:soysauce"
+    }
+  ],
+  "intermediate": "minecraft:air",
+  "min-building-level": 4,
+  "result": "minecolonies:ramen",
+  "show-tooltip": true
+>>>>>>> 92b1177442 (Cook rework (#10368)):src/datagen/generated/minecolonies/data/minecolonies/crafterrecipes/chef/ramen.json
+}

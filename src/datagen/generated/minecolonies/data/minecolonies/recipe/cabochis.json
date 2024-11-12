@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "id": "minecolonies:onion"
+    },
+    {
+      "id": "minecolonies:cabbage"
+    },
+    {
+      "id": "minecraft:bowl"
+    },
+    {
+      "id": "minecolonies:manchet_bread"
+    }
+  ],
+<<<<<<< HEAD:src/datagen/generated/minecolonies/data/minecolonies/crafterrecipes/chef/cabochis.json
+  "intermediate": "minecraft:air",
+  "min-building-level": 1,
+  "result": {
+    "id": "minecolonies:cabochis"
+=======
+  "result": {
+    "item": "minecolonies:cabochis"
+>>>>>>> 92b1177442 (Cook rework (#10368)):src/datagen/generated/minecolonies/data/minecolonies/recipes/cabochis.json
+  }
+}

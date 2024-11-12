@@ -19,8 +19,14 @@
     }
   ],
   "intermediate": "minecraft:air",
+<<<<<<< HEAD
   "min-building-level": 1,
   "result": {
     "id": "minecolonies:stuffed_pita"
   }
+=======
+  "min-building-level": 4,
+  "result": "minecolonies:stuffed_pita",
+  "show-tooltip": true
+>>>>>>> 92b1177442 (Cook rework (#10368))
 }
