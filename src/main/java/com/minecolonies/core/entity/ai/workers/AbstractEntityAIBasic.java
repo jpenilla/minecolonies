@@ -955,7 +955,7 @@ public abstract class AbstractEntityAIBasic<J extends AbstractJob<?, J>, B exten
         {
             if (req.getRequest().getMinLevel() < minLevel || req.getRequest().getMaxLevel() < maxLevel)
             {
-                worker.getCitizenColonyHandler().getColony().getRequestManager().updateRequestState(req.getId(), RequestState.CANCELLED);
+                worker.getCitizenColonyHandler().getColonyOrRegister().getRequestManager().updateRequestState(req.getId(), RequestState.CANCELLED);
             }
             else
             {
@@ -981,7 +981,7 @@ public abstract class AbstractEntityAIBasic<J extends AbstractJob<?, J>, B exten
           building.getOpenRequestsOfTypeFiltered(worker.getCitizenData(), TypeConstants.TOOL, iRequest -> iRequest.getRequest().getEquipmentType() == armorType);
         for (final IRequest<?> token : openRequests)
         {
-            worker.getCitizenColonyHandler().getColony().getRequestManager().updateRequestState(token.getId(), RequestState.CANCELLED);
+            worker.getCitizenColonyHandler().getColonyOrRegister().getRequestManager().updateRequestState(token.getId(), RequestState.CANCELLED);
         }
     }
 
