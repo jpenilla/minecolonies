@@ -68,7 +68,7 @@ public class WorldUtil
             final ChunkHolder holder = ((ServerChunkCache) world.getChunkSource()).chunkMap.getVisibleChunkIfPresent(ChunkPos.asLong(x, z));
             if (holder != null)
             {
-                return holder.getChunkIfPresent(ChunkStatus.FULL) != null;
+                return holder.getFullStatus().isOrAfter(FullChunkStatus.FULL) && holder.getChunkIfPresent(ChunkStatus.FULL) != null;
             }
 
             return false;
