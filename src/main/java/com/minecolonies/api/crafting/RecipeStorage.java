@@ -16,6 +16,7 @@ import net.minecraft.core.DefaultedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -545,7 +546,7 @@ public class RecipeStorage implements IRecipeStorage
                             {
                                 // The 4 parameter inner call from forge is for adding a callback to alter the damage caused,
                                 // but unlike its description does not actually damage the item(despite the same function name). So used to just calculate the damage.
-                                toDamage.hurtAndBreak(toDamage.getItem().damageItem(stack, 1, citizen, item -> item.broadcastBreakEvent(InteractionHand.MAIN_HAND)), citizen, item -> item.broadcastBreakEvent(InteractionHand.MAIN_HAND));
+                                toDamage.hurtAndBreak(toDamage.getItem().damageItem(stack, 1, citizen, item -> {}), citizen, EquipmentSlot.MAINHAND);
                             }
                             if (!ItemStackUtils.isEmpty(toDamage))
                             {
