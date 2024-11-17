@@ -14,17 +14,6 @@
         </box>
     </list>
 
-    <list id="resourcesstock" size="164 180" pos="13 50">
-        <box size="100% 17" linewidth="1">
-            <gradient id="gradient" size="162 15" pos="1 1"/>
-            <itemicon id="resourceIcon" size="16 16" pos="0 0"/>
-            <label id="resourceName" size="100 12" pos="20 1" color="black"/>
-
-            <buttonimage label="X" id="removeStock" pos="126 1" size="29 15"
-                         source="minecolonies:textures/gui/builderhut/builder_button_very_small.png" textcolor="red"/>
-        </box>
-    </list>
-
     <image source="minecolonies:textures/gui/builderhut/builder_paper.png" size="190 244" pos="190 0"/>
     <text id="desc" size="130 11" pos="220 14" color="black" textalign="MIDDLE" label="$(com.minecolonies.core.food_list.title)"/>
     <input id="input" size="150 18" pos="210 28" maxlength="25"/>
