@@ -553,14 +553,42 @@ public class DefaultItemTagsProvider extends ItemTagsProvider
         tag(ModTags.ignoreNBT)
           .addTag(ItemTags.BANNERS);
 
-        tag(Tags.Items.FOODS)
-          .add(ModItems.milkyBread, ModItems.sugaryBread, ModItems.goldenBread, ModItems.chorusBread);
+        tag(Tags.Items.FOODS).add(ModItems.getAllFoods());
 
         tag(Tags.Items.FOODS_BREAD)
-          .add(ModItems.milkyBread, ModItems.sugaryBread, ModItems.goldenBread, ModItems.chorusBread);
+          .add(ModItems.milkyBread,
+            ModItems.sugaryBread,
+            ModItems.goldenBread,
+            ModItems.chorusBread,
+            ModItems.flatbread,
+            ModItems.hand_pie,
+            ModItems.lembas_scone,
+            ModItems.manchet_bread,
+            ModItems.muffin,
+            ModItems.stew_trencher,
+            ModItems.stuffed_pita);
+
+        tag(Tags.Items.FOODS_CANDY)
+          .add(ModItems.hand_pie)
+          .add(ModItems.muffin);
+
+        tag(Tags.Items.FOODS_COOKED_MEAT)
+          .add(ModItems.lamb_stew);
 
         tag(Tags.Items.FOODS_GOLDEN)
           .add(ModItems.goldenBread);
+
+        tag(Tags.Items.FOODS_SOUP)
+          .add(ModItems.cabochis)
+          .add(ModItems.lamb_stew)
+          .add(ModItems.pottage);
+
+        tag(Tags.Items.FOODS_VEGETABLE)
+          .add(ModItems.cabochis)
+          .add(ModItems.eggplant_dolma)
+          .add(ModItems.pottage)
+          .add(ModItems.stuffed_pepper)
+          .add(ModItems.stuffed_pita);
     }
 
     @NotNull
