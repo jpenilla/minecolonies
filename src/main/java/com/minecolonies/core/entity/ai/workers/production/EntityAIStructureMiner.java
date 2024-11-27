@@ -1,6 +1,7 @@
 package com.minecolonies.core.entity.ai.workers.production;
 
 import com.ldtteam.structurize.api.RotationMirror;
+import com.minecolonies.api.MinecoloniesAPIProxy;
 import com.minecolonies.api.advancements.AdvancementTriggers;
 import com.minecolonies.api.colony.IColonyManager;
 import com.minecolonies.api.colony.interactionhandling.ChatPriority;
@@ -24,7 +25,10 @@ import com.minecolonies.core.util.WorkerUtil;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -34,8 +38,8 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.neoforged.neoforge.common.ItemAbilities;
-import net.minecraft.world.level.storage.loot.LootDataManager;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootParams.Builder;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
@@ -983,15 +987,16 @@ public class EntityAIStructureMiner extends AbstractEntityAIStructureWithWorkOrd
 
             if (canGetLuckyBlock)
             {
-                final LootDataManager manager = building.getColony().getWorld().getServer().getLootData();
-                final ResourceLocation lootTableId = LUCKY_ORE_LOOT_TABLE.withSuffix(String.valueOf(building.getBuildingLevel()));
+
+                final ResourceKey<LootTable> lootTableId = ResourceKey.create(Registries.LOOT_TABLE, LUCKY_ORE_LOOT_TABLE.withSuffix(String.valueOf(building.getBuildingLevel())));
                 final LootParams lootParams = new Builder((ServerLevel) this.world)
                                                 .withParameter(LootContextParams.ORIGIN, position.getCenter())
                                                 .withParameter(LootContextParams.THIS_ENTITY, worker)
                                                 .withParameter(LootContextParams.TOOL, worker.getMainHandItem())
                                                 .create(LUCKY_ORE_PARAM_SET);
 
-                final ObjectArrayList<ItemStack> randomItems = manager.getLootTable(lootTableId).getRandomItems(lootParams);
+
+                final ObjectArrayList<ItemStack> randomItems = worker.level().getServer().reloadableRegistries().getLootTable(lootTableId).getRandomItems(lootParams);
                 for (final ItemStack stack : randomItems)
                 {
                     InventoryUtils.transferItemStackIntoNextBestSlotInItemHandler(stack, worker.getInventoryCitizen());
