@@ -5,6 +5,7 @@ import com.google.common.reflect.TypeToken;
 import com.minecolonies.api.colony.requestsystem.factory.IFactoryController;
 import com.minecolonies.api.crafting.ItemStorage;
 import com.minecolonies.api.util.ItemStackUtils;
+import com.minecolonies.api.util.Log;
 import com.minecolonies.api.util.ReflectionUtils;
 import com.minecolonies.api.util.Utils;
 import com.minecolonies.api.util.constant.TypeConstants;
@@ -165,7 +166,17 @@ public class Stack implements IConcreteDeliverable
             throw new IllegalArgumentException("Cannot deliver Empty Stack.");
         }
 
-        this.theStack = stack.copy();
+        if (stack.getCount() > stack.getMaxStackSize())
+        {
+            Log.getLogger().error("Stack with ItemStack with too large stack size.: ", new Exception());
+            this.theStack = stack.copy();
+            this.theStack.setCount(this.theStack.getMaxStackSize());
+        }
+        else
+        {
+            this.theStack = stack.copy();
+        }
+
         this.matchDamage = matchDamage;
         this.matchNBT = matchNBT;
         this.result = result;
