@@ -520,7 +520,7 @@ public abstract class AbstractEntityAIGuard<J extends AbstractJobGuard<J>, B ext
 
                 if (currentPatrolPoint != null)
                 {
-                    setNextPatrolTargetAndMove(currentPatrolPoint);
+                    setNextPatrolTarget(currentPatrolPoint);
                 }
             }
         }
@@ -561,11 +561,11 @@ public abstract class AbstractEntityAIGuard<J extends AbstractJobGuard<J>, B ext
                     final MinerLevel level = buildingMiner.getFirstModuleOccurance(MinerLevelManagementModule.class).getCurrentLevel();
                     if (level == null)
                     {
-                        setNextPatrolTargetAndMove(buildingMiner.getPosition());
+                        setNextPatrolTarget(buildingMiner.getPosition());
                     }
                     else
                     {
-                        setNextPatrolTargetAndMove(level.getRandomCompletedNode(buildingMiner));
+                        setNextPatrolTarget(level.getRandomCompletedNode(buildingMiner));
                     }
                 }
                 else
@@ -588,7 +588,7 @@ public abstract class AbstractEntityAIGuard<J extends AbstractJobGuard<J>, B ext
      */
     public void setNextPatrolTargetAndMove(final BlockPos target)
     {
-        currentPatrolPoint = target;
+        setNextPatrolTarget(target);
         registerTarget(new AIOneTimeEventTarget(() ->
         {
             if (getState() == CombatAIStates.NO_TARGET)
@@ -597,6 +597,16 @@ public abstract class AbstractEntityAIGuard<J extends AbstractJobGuard<J>, B ext
             }
             return getState();
         }));
+    }
+
+    /**
+     * Sets the next patrol target.
+     *
+     * @param target the next patrol target.
+     */
+    private void setNextPatrolTarget(final BlockPos target)
+    {
+        currentPatrolPoint = target;
     }
 
     /**
