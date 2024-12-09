@@ -180,21 +180,20 @@ public class SurvivalHandler implements ISurvivalBlueprintHandler
                 {
                     Log.getLogger().error("Error during EntityPlaceEvent", e);
                 }
-                InventoryUtils.reduceStackInItemHandler(new InvWrapper(player.getInventory()), inventoryStack, 1);
 
                 if (tempColony == null)
                 {
                     // Townhall Placement
                     SoundUtils.playSuccessSound(player, player.blockPosition());
+                    InventoryUtils.reduceStackInItemHandler(new InvWrapper(player.getInventory()), inventoryStack, 1);
                     return;
                 }
 
                 AdvancementUtils.TriggerAdvancementPlayersForColony(tempColony, playerMP -> AdvancementTriggers.PLACE_STRUCTURE.get().trigger(playerMP, ((AbstractBlockHut<?>) anchor.getBlock()).getBlueprintName()));
 
-
                 int level = 0;
                 boolean finishedUpgrade = false;
-                final HutBlockData hutComponent = HutBlockData.readFromItemStack(stack);
+                final HutBlockData hutComponent = HutBlockData.readFromItemStack(inventoryStack);
                 if (hutComponent != null)
                 {
                     if (hutComponent.level() != -1)
@@ -211,6 +210,8 @@ public class SurvivalHandler implements ISurvivalBlueprintHandler
                         finishedUpgrade = true;
                     }
                 }
+
+                InventoryUtils.reduceStackInItemHandler(new InvWrapper(player.getInventory()), inventoryStack, 1);
 
                 @Nullable final IBuilding building = IColonyManager.getInstance().getBuilding(world, blockPos);
                 if (building == null)
