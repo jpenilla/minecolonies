@@ -40,7 +40,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 @OnlyIn(Dist.CLIENT)
 public class CitizenArmorLayer<T extends AbstractEntityCitizen, M extends HumanoidModel<T>, A extends HumanoidModel<T>> extends HumanoidArmorLayer<T, M, A>
@@ -129,7 +128,7 @@ public class CitizenArmorLayer<T extends AbstractEntityCitizen, M extends Humano
 
     private void renderArmorPiece(PoseStack poseStack, MultiBufferSource bufferSource, T citizen, EquipmentSlot equipmentSlot, int light, A armor, final ICitizenDataView citizenDataView)
     {
-        ItemStack itemstack = citizenDataView.getInventory().getArmorInSlot(equipmentSlot);
+        ItemStack itemstack = citizenDataView.getDisplayArmor(equipmentSlot);
         if (itemstack.isEmpty())
         {
             itemstack = citizen.getItemBySlot(equipmentSlot);

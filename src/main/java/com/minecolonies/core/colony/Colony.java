@@ -70,8 +70,6 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -1896,13 +1894,6 @@ public class Colony implements IColony
     @Override
     public String getTextureStyleId()
     {
-        if (MineColonies.getConfig().getServer().holidayFeatures.get() &&
-              ((LocalDateTime.now().getDayOfMonth() >= 29 && LocalDateTime.now().getMonth() == Month.OCTOBER)
-                 || (LocalDateTime.now().getDayOfMonth() <= 2 && LocalDateTime.now().getMonth() == Month.NOVEMBER)))
-        {
-            return "nether";
-        }
-
         return this.textureStyle;
     }
 
