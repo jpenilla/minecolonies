@@ -219,6 +219,11 @@ public final class CitizenConstants
     public static final String TAG_DISEASE = "disease";
 
     /**
+     * Disease iod tag.
+     */
+    public static final String TAG_DISEASE_ID = "disease_id";
+
+    /**
      * Disease immunity tag,
      */
     public static final String TAG_IMMUNITY = "immunity";

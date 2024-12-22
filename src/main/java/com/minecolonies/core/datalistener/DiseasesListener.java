@@ -175,7 +175,7 @@ public class DiseasesListener extends SimpleJsonResourceReloadListener
                     continue;
                 }
 
-                final ItemStorage cureItem = new ItemStorage(jsonElement.getAsJsonObject());
+                final ItemStorage cureItem = new ItemStorage(this.getRegistryLookup(), jsonElement.getAsJsonObject());
                 // TODO: Apparently the healing doesn't fully work yet with multi-count cure items
                 // for the sake of compatibility for now, revert the count to 1 despite what's in the JSON.
                 cureItem.setAmount(1);
