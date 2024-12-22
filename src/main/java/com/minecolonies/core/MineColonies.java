@@ -374,6 +374,7 @@ public class MineColonies
         OpenPlantationFieldBuildWindowMessage.TYPE.register(registry);
         SaveStructureNBTMessage.TYPE.register(registry);
         GlobalQuestSyncMessage.TYPE.register(registry);
+        GlobalDiseaseSyncMessage.TYPE.register(registry);
 
         OpenBuildingUIMessage.TYPE.register(registry);
         OpenCantFoundColonyWarningMessage.TYPE.register(registry);

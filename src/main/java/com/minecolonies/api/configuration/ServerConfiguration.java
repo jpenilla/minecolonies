@@ -103,7 +103,6 @@ public class ServerConfiguration extends AbstractConfiguration
      *  -------------------------------------------------------------------------------- */
 
     public final ConfigValue<List<? extends String>> configListRecruitmentItems;
-    public final ConfigValue<List<? extends String>> diseases;
     public final BooleanValue                        auditCraftingTags;
     public final BooleanValue                        debugInventories;
     public final BooleanValue                        blueprintBuildMode;
@@ -216,13 +215,6 @@ public class ServerConfiguration extends AbstractConfiguration
             "minecraft:sunflower;5",
             "minecraft:honeycomb;6",
             "minecraft:quartz;3");
-
-        diseases = defineList("diseases",
-            () -> "name,rarity,item IDs",
-            stringValidator,
-            "Influenza,100,minecraft:carrot,minecraft:potato",
-            "Measles,10,minecraft:dandelion,minecraft:kelp,minecraft:poppy",
-            "Smallpox,1,minecraft:honey_bottle,minecraft:golden_apple");
 
         auditCraftingTags = defineBoolean("auditcraftingtags", false);
         debugInventories = defineBoolean("debuginventories", false);
