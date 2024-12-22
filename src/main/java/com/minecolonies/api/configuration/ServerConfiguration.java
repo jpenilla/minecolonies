@@ -102,7 +102,6 @@ public class ServerConfiguration extends AbstractConfiguration
      *  ------------------- ######## Compatibility Settings ######## ------------------- *
      *  -------------------------------------------------------------------------------- */
 
-    public final ConfigValue<List<? extends String>> configListStudyItems;
     public final ConfigValue<List<? extends String>> configListRecruitmentItems;
     public final ConfigValue<List<? extends String>> diseases;
     public final BooleanValue                        auditCraftingTags;
@@ -122,7 +121,6 @@ public class ServerConfiguration extends AbstractConfiguration
      *  --------------------------------------------------------------------------------- */
 
     public final BooleanValue creativeResolve;
-
 
     /**
      * Builds server configuration.
@@ -201,12 +199,6 @@ public class ServerConfiguration extends AbstractConfiguration
         turnOffExplosionsInColonies = defineEnum("turnoffexplosionsincolonies", Explosions.DAMAGE_ENTITIES);
 
         swapToCategory("compatibility");
-
-        configListStudyItems = defineList("configliststudyitems",
-            () -> "item ID;skillChance;breakChance",
-            stringValidator,
-            "minecraft:paper;400;100",
-            "minecraft:book;600;10");
 
         configListRecruitmentItems = defineList("configlistrecruitmentitems",
             () -> "item ID;rarity",
