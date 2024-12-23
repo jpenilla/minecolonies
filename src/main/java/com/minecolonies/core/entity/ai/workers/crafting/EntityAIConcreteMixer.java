@@ -8,12 +8,12 @@ import com.minecolonies.api.util.ItemStackUtils;
 import com.minecolonies.api.util.Tuple;
 import com.minecolonies.core.colony.buildings.workerbuildings.BuildingConcreteMixer;
 import com.minecolonies.core.colony.jobs.JobConcreteMixer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.ConcretePowderBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.core.Direction;
-import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ConcretePowderBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
@@ -80,7 +80,7 @@ public class EntityAIConcreteMixer extends AbstractEntityAICrafting<JobConcreteM
             return START_WORKING;
         }
 
-        if (walkToBlock(posToPlace))
+        if (!walkToWorkPos(posToPlace))
         {
             return getState();
         }
@@ -109,7 +109,7 @@ public class EntityAIConcreteMixer extends AbstractEntityAICrafting<JobConcreteM
             return START_WORKING;
         }
 
-        if (walkToBlock(posToMine))
+        if (!walkToWorkPos(posToMine))
         {
             return getState();
         }
@@ -170,7 +170,7 @@ public class EntityAIConcreteMixer extends AbstractEntityAICrafting<JobConcreteM
             return performMixingWork();
         }
 
-        if (walkTo == null && walkToBuilding())
+        if (walkTo == null && !walkToBuilding())
         {
             return START_WORKING;
         }
@@ -208,7 +208,7 @@ public class EntityAIConcreteMixer extends AbstractEntityAICrafting<JobConcreteM
             return GET_RECIPE;
         }
 
-        if (walkTo == null && walkToBuilding())
+        if (walkTo == null && !walkToBuilding())
         {
             return getState();
         }

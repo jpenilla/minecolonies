@@ -15,6 +15,7 @@ import com.minecolonies.api.sounds.MercenarySounds;
 import com.minecolonies.core.entity.ai.minimal.EntityAIInteractToggleAble;
 import com.minecolonies.core.entity.citizen.EntityCitizen;
 import com.minecolonies.core.entity.pathfinding.navigation.AbstractAdvancedPathNavigate;
+import com.minecolonies.core.entity.pathfinding.navigation.EntityNavigationUtils;
 import com.minecolonies.core.entity.pathfinding.navigation.MinecoloniesAdvancedPathNavigate;
 import com.minecolonies.core.entity.pathfinding.proxy.GeneralEntityWalkToProxy;
 import com.minecolonies.core.entity.pathfinding.navigation.MinecoloniesAdvancedPathNavigate;
@@ -259,11 +260,11 @@ public class EntityMercenary extends AbstractFastMinecoloniesEntity implements N
         playSound(MercenarySounds.mercenaryCelebrate, 2.0f, 1.0f);
         if (blockPosition().equals(first))
         {
-            getNavigation().tryMoveToBlockPos(last, 0.5);
+            EntityNavigationUtils.walkToPos(this, last, 2, true, 0.5);
         }
         else
         {
-            getNavigation().tryMoveToBlockPos(first, 0.5);
+            EntityNavigationUtils.walkToPos(this, first, 2, true, 0.5);
         }
 
         return false;

@@ -23,6 +23,7 @@ import com.minecolonies.core.colony.buildings.modules.CraftingWorkerBuildingModu
 import com.minecolonies.core.colony.jobs.AbstractJobCrafter;
 import com.minecolonies.core.entity.ai.workers.AbstractEntityAIInteract;
 import com.minecolonies.core.entity.citizen.EntityCitizen;
+import com.minecolonies.core.entity.pathfinding.navigation.EntityNavigationUtils;
 import com.minecolonies.core.util.citizenutils.CitizenItemUtils;
 import com.minecolonies.core.network.messages.client.BlockParticleEffectMessage;
 import com.minecolonies.core.network.messages.client.LocalizedParticleEffectMessage;
@@ -145,7 +146,7 @@ public abstract class AbstractEntityAICrafting<J extends AbstractJobCrafter<?, J
                 if (building.isInBuilding(worker.blockPosition()) && ColonyConstants.rand.nextInt(20) != 0)
                 {
                     setDelay(TICKS_20 * 20);
-                    worker.getNavigation().moveToRandomPos(10, DEFAULT_SPEED, building.getCorners());
+                    EntityNavigationUtils.walkToRandomPosWithin(worker, 10, DEFAULT_SPEED, building.getCorners());
                 }
                 else
                 {
@@ -160,7 +161,7 @@ public abstract class AbstractEntityAICrafting<J extends AbstractJobCrafter<?, J
             return IDLE;
         }
 
-        if (walkToBuilding())
+        if (!walkToBuilding())
         {
             return START_WORKING;
         }
@@ -393,7 +394,7 @@ public abstract class AbstractEntityAICrafting<J extends AbstractJobCrafter<?, J
             return GET_RECIPE;
         }
 
-        if (walkToBuilding())
+        if (!walkToBuilding())
         {
             return getState();
         }
