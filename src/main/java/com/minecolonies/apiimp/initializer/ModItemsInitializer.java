@@ -1,5 +1,6 @@
 package com.minecolonies.apiimp.initializer;
 
+import com.ldtteam.blockui.Color;
 import com.minecolonies.api.blocks.ModBlocks;
 import com.minecolonies.api.entity.ModEntities;
 import com.minecolonies.api.items.ModItems;
@@ -12,10 +13,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.ArmorItem;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -43,8 +41,6 @@ public final class ModItemsInitializer
     private static final int SECONDARY_COLOR_BARBARIAN = 700;
     private static final int PRIMARY_COLOR_PIRATE      = 7;
     private static final int SECONDARY_COLOR_PIRATE    = 600;
-    private static final int PRIMARY_COLOR_MERC        = 8;
-    private static final int SECONDARY_COLOR_MERC      = 300;
     private static final int PRIMARY_COLOR_EG          = 10;
     private static final int SECONDARY_COLOR_EG        = 400;
 
@@ -390,66 +386,83 @@ public final class ModItemsInitializer
         Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "large_milk_bottle"), ModItems.large_milk_bottle);
         Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "large_soy_milk_bottle"), ModItems.large_soy_milk_bottle);
 
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "barbarianegg"), new DeferredSpawnEggItem(() -> ModEntities.BARBARIAN,
-          PRIMARY_COLOR_BARBARIAN,
-          SECONDARY_COLOR_BARBARIAN,
-          (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "barbarcheregg"), new DeferredSpawnEggItem(() -> ModEntities.ARCHERBARBARIAN,
-          PRIMARY_COLOR_BARBARIAN,
-          SECONDARY_COLOR_BARBARIAN,
-          (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "barbchiefegg"), new DeferredSpawnEggItem(() -> ModEntities.CHIEFBARBARIAN,
-          PRIMARY_COLOR_BARBARIAN,
-          SECONDARY_COLOR_BARBARIAN,
-          (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "barbarianegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_BARBARIAN,
+                Color.getByName("orange"),
+                Color.getByName("black"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "barbarcheregg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_ARCHERBARBARIAN,
+                Color.getByName("orange"),
+                Color.getByName("green"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "barbchiefegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_CHIEFBARBARIAN,
+                Color.getByName("orange"),
+                Color.getByName("yellow"),
+                (new Item.Properties())));
 
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "pirateegg"), new DeferredSpawnEggItem(() -> ModEntities.PIRATE,
-          PRIMARY_COLOR_PIRATE,
-          SECONDARY_COLOR_PIRATE,
-          (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "piratearcheregg"), new DeferredSpawnEggItem(() -> ModEntities.ARCHERPIRATE,
-          PRIMARY_COLOR_PIRATE,
-          SECONDARY_COLOR_PIRATE,
-          (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "piratecaptainegg"), new DeferredSpawnEggItem(() -> ModEntities.CHIEFPIRATE,
-          PRIMARY_COLOR_PIRATE,
-          SECONDARY_COLOR_PIRATE,
-          (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "pirateegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_PIRATE,
+                Color.getByName("red"),
+                Color.getByName("white"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "piratearcheregg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_ARCHERPIRATE,
+                Color.getByName("red"),
+                Color.getByName("green"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "piratecaptainegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_CHIEFPIRATE,
+                Color.getByName("red"),
+                Color.getByName("yellow"),
+                (new Item.Properties())));
 
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "mummyegg"), new DeferredSpawnEggItem(() -> ModEntities.MUMMY, PRIMARY_COLOR_EG, SECONDARY_COLOR_EG, (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "mummyarcheregg"), new DeferredSpawnEggItem(() -> ModEntities.ARCHERMUMMY,
-          PRIMARY_COLOR_EG,
-          SECONDARY_COLOR_EG,
-          (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "pharaoegg"), new DeferredSpawnEggItem(() -> ModEntities.PHARAO, PRIMARY_COLOR_EG, SECONDARY_COLOR_EG, (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "mummyegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_MUMMY,
+                Color.getByName("yellow"),
+                Color.getByName("white"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "mummyarcheregg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_ARCHERMUMMY,
+                Color.getByName("yellow"),
+                Color.getByName("green"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "pharaoegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_PHARAO,
+                Color.getByName("yellow"),
+                Color.getByName("yellow"),
+                (new Item.Properties())));
 
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "shieldmaidenegg"), new DeferredSpawnEggItem(() -> ModEntities.SHIELDMAIDEN,
-          PRIMARY_COLOR_EG,
-          SECONDARY_COLOR_EG,
-          (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "norsemenarcheregg"), new DeferredSpawnEggItem(() -> ModEntities.NORSEMEN_ARCHER,
-          PRIMARY_COLOR_EG,
-          SECONDARY_COLOR_EG,
-          (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "norsemenchiefegg"), new DeferredSpawnEggItem(() -> ModEntities.NORSEMEN_CHIEF,
-          PRIMARY_COLOR_EG,
-          SECONDARY_COLOR_EG,
-          (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "shieldmaidenegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_SHIELDMAIDEN,
+                Color.getByName("black"),
+                Color.getByName("white"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "norsemenarcheregg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_NORSEMEN_ARCHER,
+                Color.getByName("black"),
+                Color.getByName("green"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "norsemenchiefegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_NORSEMEN_CHIEF,
+                Color.getByName("black"),
+                Color.getByName("yellow"),
+                (new Item.Properties())));
 
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "amazonegg"), new DeferredSpawnEggItem(() -> ModEntities.AMAZON, PRIMARY_COLOR_EG, SECONDARY_COLOR_EG, (new Item.Properties())));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "amazonspearmanegg"), new DeferredSpawnEggItem(() -> ModEntities.AMAZONSPEARMAN,
-          PRIMARY_COLOR_EG,
-          SECONDARY_COLOR_EG,
-          new Item.Properties()));
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "amazonchiefegg"), new DeferredSpawnEggItem(() -> ModEntities.AMAZONCHIEF,
-          PRIMARY_COLOR_EG,
-          SECONDARY_COLOR_EG,
-          (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "amazonegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_AMAZON,
+                Color.getByName("green"),
+                Color.getByName("white"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "amazonspearmanegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_AMAZONSPEARMAN,
+                Color.getByName("green"),
+                Color.getByName("green"),
+                new Item.Properties()));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "amazonchiefegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_AMAZONCHIEF,
+                Color.getByName("green"),
+                Color.getByName("yellow"),
+                (new Item.Properties())));
 
-        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "mercegg"), new DeferredSpawnEggItem(() -> ModEntities.MERCENARY,
-          PRIMARY_COLOR_MERC,
-          SECONDARY_COLOR_MERC,
-          (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "drownedpirateegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_DROWNED_PIRATE,
+                Color.getByName("blue"),
+                Color.getByName("white"),
+                (new Item.Properties())));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "drownedpiratearcheregg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_DROWNED_ARCHERPIRATE,
+                Color.getByName("blue"),
+                Color.getByName("green"),
+                new Item.Properties()));
+        Registry.register(registry, new ResourceLocation(Constants.MOD_ID, "drownedpiratecaptainegg"), new DeferredSpawnEggItem(() -> ModEntities.CAMP_DROWNED_CHIEFPIRATE,
+                Color.getByName("blue"),
+                Color.getByName("yellow"),
+                (new Item.Properties())));
     }
 
     public static final Holder<ArmorMaterial> SANTA_HAT = DEFERRED_REGISTER.register("santa_hat", () -> new ArmorMaterial(

@@ -1,7 +1,7 @@
 package com.minecolonies.core.items;
 
 import com.minecolonies.api.entity.mobs.RaiderMobUtils;
-import com.minecolonies.api.entity.mobs.barbarians.AbstractEntityBarbarian;
+import com.minecolonies.api.entity.mobs.barbarians.AbstractEntityBarbarianRaider;
 import com.minecolonies.api.items.IChiefSwordItem;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
@@ -47,7 +47,7 @@ public class ItemChiefSword extends SwordItem implements IChiefSwordItem
     @Override
     public boolean hurtEnemy(final ItemStack stack, final LivingEntity target, @NotNull final LivingEntity attacker)
     {
-        if (attacker instanceof Player && target instanceof AbstractEntityBarbarian)
+        if (attacker instanceof Player && target instanceof AbstractEntityBarbarianRaider)
         {
             target.addEffect(new MobEffectInstance(MobEffects.LEVITATION, LEVITATION_EFFECT_DURATION, LEVITATION_EFFECT_MULTIPLIER));
         }

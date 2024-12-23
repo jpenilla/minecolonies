@@ -2,6 +2,7 @@ package com.minecolonies.api.creativetab;
 
 import com.minecolonies.api.blocks.AbstractBlockHut;
 import com.minecolonies.api.blocks.ModBlocks;
+import com.minecolonies.api.entity.ModEntities;
 import com.minecolonies.api.items.ModItems;
 import com.minecolonies.api.util.constant.Constants;
 import net.minecraft.core.Registry;
@@ -11,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.minecraft.world.level.block.Block;
@@ -112,6 +114,31 @@ public final class ModCreativeTabs
           output.accept(ModItems.sugaryBread);
           output.accept(ModItems.goldenBread);
           output.accept(ModItems.chorusBread);
+
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_BARBARIAN));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERBARBARIAN));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_CHIEFBARBARIAN));
+
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_PIRATE));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERPIRATE));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_CHIEFPIRATE));
+
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_MUMMY));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERMUMMY));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_PHARAO));
+
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_SHIELDMAIDEN));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_NORSEMEN_ARCHER));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_NORSEMEN_CHIEF));
+
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZON));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZONSPEARMAN));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZONCHIEF));
+
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_PIRATE));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_ARCHERPIRATE));
+          output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_CHIEFPIRATE));
+
       }).build());
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FOOD = TAB_REG.register("mcfood", () -> new CreativeModeTab.Builder(CreativeModeTab.Row.TOP, 1)

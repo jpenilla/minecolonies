@@ -17,18 +17,15 @@ import java.util.concurrent.CompletableFuture;
 
 import static com.minecolonies.api.util.constant.Constants.MOD_ID;
 
-public class DefaultDamageTypeProvider extends JsonCodecProvider<DamageType>
-{
+public class DefaultDamageTypeProvider extends JsonCodecProvider<DamageType> {
     public DefaultDamageTypeProvider(@NotNull final PackOutput packOutput,
                                      @NotNull final ExistingFileHelper existingFileHelper,
-                                     final CompletableFuture<Provider> lookupProvider)
-    {
+                                     final CompletableFuture<Provider> lookupProvider) {
         super(packOutput, Target.DATA_PACK, "damage_type", PackType.SERVER_DATA, DamageType.DIRECT_CODEC, lookupProvider, MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void gather()
-    {
+    protected void gather() {
         unconditional(DamageSourceKeys.CONSOLE.location(), damage("console"));
         unconditional(DamageSourceKeys.DEFAULT.location(), damage("default"));
         unconditional(DamageSourceKeys.DESPAWN.location(), damage("despawn"));
@@ -60,17 +57,35 @@ public class DefaultDamageTypeProvider extends JsonCodecProvider<DamageType>
         unconditional(DamageSourceKeys.DROWNED_PIRATE.location(), entityDamage(ModEntities.DROWNED_PIRATE));
         unconditional(DamageSourceKeys.DROWNED_ARCHERPIRATE.location(), entityDamage(ModEntities.DROWNED_ARCHERPIRATE));
         unconditional(DamageSourceKeys.DROWNED_CHIEFPIRATE.location(), entityDamage(ModEntities.DROWNED_CHIEFPIRATE));
+
+        unconditional(DamageSourceKeys.CAMP_AMAZON.location(), entityDamage(ModEntities.CAMP_AMAZON));
+        unconditional(DamageSourceKeys.CAMP_AMAZONCHIEF.location(), entityDamage(ModEntities.CAMP_AMAZONCHIEF));
+        unconditional(DamageSourceKeys.CAMP_AMAZONSPEARMAN.location(), entityDamage(ModEntities.CAMP_AMAZONSPEARMAN));
+
+        unconditional(DamageSourceKeys.CAMP_BARBARIAN.location(), entityDamage(ModEntities.CAMP_BARBARIAN));
+        unconditional(DamageSourceKeys.CAMP_CHIEFBARBARIAN.location(), entityDamage(ModEntities.CAMP_CHIEFBARBARIAN));
+        unconditional(DamageSourceKeys.CAMP_ARCHERBARBARIAN.location(), entityDamage(ModEntities.CAMP_ARCHERBARBARIAN));
+
+        unconditional(DamageSourceKeys.CAMP_MUMMY.location(), entityDamage(ModEntities.CAMP_MUMMY));
+        unconditional(DamageSourceKeys.CAMP_ARCHERMUMMY.location(), entityDamage(ModEntities.CAMP_ARCHERMUMMY));
+        unconditional(DamageSourceKeys.CAMP_PHARAO.location(), entityDamage(ModEntities.CAMP_PHARAO));
+
+        unconditional(DamageSourceKeys.CAMP_PIRATE.location(), entityDamage(ModEntities.CAMP_PIRATE));
+        unconditional(DamageSourceKeys.CAMP_ARCHERPIRATE.location(), entityDamage(ModEntities.CAMP_ARCHERPIRATE));
+        unconditional(DamageSourceKeys.CAMP_CHIEFPIRATE.location(), entityDamage(ModEntities.CAMP_CHIEFPIRATE));
+
+        unconditional(DamageSourceKeys.CAMP_NORSEMENARCHER.location(), entityDamage(ModEntities.CAMP_NORSEMEN_ARCHER));
+        unconditional(DamageSourceKeys.CAMP_NORSEMENCHIEF.location(), entityDamage(ModEntities.CAMP_NORSEMEN_CHIEF));
+        unconditional(DamageSourceKeys.CAMP_SHIELDMAIDEN.location(), entityDamage(ModEntities.CAMP_SHIELDMAIDEN));
     }
 
     @NotNull
-    private static DamageType entityDamage(@NotNull final EntityType<?> entityType)
-    {
+    private static DamageType entityDamage(@NotNull final EntityType<?> entityType) {
         return damage(entityType.getDescriptionId());
     }
 
     @NotNull
-    private static DamageType damage(@NotNull final String msgId)
-    {
+    private static DamageType damage(@NotNull final String msgId) {
         return new DamageType(msgId, DamageScaling.ALWAYS, 0.1F);
     }
 }

@@ -4,7 +4,7 @@ import com.minecolonies.api.colony.jobs.IJob;
 import com.minecolonies.api.colony.jobs.registry.IJobRegistry;
 import com.minecolonies.api.colony.jobs.registry.JobEntry;
 import com.minecolonies.api.entity.citizen.AbstractEntityCitizen;
-import com.minecolonies.api.entity.mobs.AbstractEntityRaiderMob;
+import com.minecolonies.api.entity.mobs.AbstractEntityMinecoloniesRaider;
 import com.minecolonies.core.colony.jobs.AbstractJobGuard;
 import com.minecolonies.core.entity.visitor.VisitorCitizen;
 import journeymap.api.v2.client.IClientAPI;
@@ -147,7 +147,7 @@ public class JourneymapPlugin implements IClientPlugin
                 wrapper.setColor(entity.getTeamColor());
             }
         }
-        else if (entity instanceof AbstractEntityRaiderMob)
+        else if (entity instanceof AbstractEntityMinecoloniesRaider)
         {
             final JourneymapOptions.RaiderColor color = JourneymapOptions.getRaiderColor(this.jmap.getOptions());
 
