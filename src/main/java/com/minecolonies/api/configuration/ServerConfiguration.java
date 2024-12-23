@@ -32,7 +32,6 @@ public class ServerConfiguration extends AbstractConfiguration
     public final BooleanValue enableInDevelopmentFeatures;
     public final BooleanValue alwaysRenderNameTag;
     public final BooleanValue workersAlwaysWorkInRain;
-    public final BooleanValue holidayFeatures;
     public final IntValue     luckyBlockChance;
     public final IntValue     minThLevelToTeleport;
     public final DoubleValue  foodModifier;
@@ -141,7 +140,6 @@ public class ServerConfiguration extends AbstractConfiguration
         enableInDevelopmentFeatures = defineBoolean("enableindevelopmentfeatures", false);
         alwaysRenderNameTag = defineBoolean("alwaysrendernametag", true);
         workersAlwaysWorkInRain = defineBoolean("workersalwaysworkinrain", false);
-        holidayFeatures = defineBoolean("holidayfeatures", true);
         luckyBlockChance = defineInteger("luckyblockchance", 1, 0, 100);
         minThLevelToTeleport = defineInteger("minthleveltoteleport", 3, 0, 5);
         foodModifier = defineDouble("foodmodifier", 1.0, 0.1, 100);
