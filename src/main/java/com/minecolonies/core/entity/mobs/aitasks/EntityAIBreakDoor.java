@@ -90,7 +90,7 @@ public class EntityAIBreakDoor extends BreakDoorGoal
         }
         else
         {
-            int fasterBreakPerXNearby = 5;
+            double fasterBreakPerXNearby = 5;
 
             if (mob instanceof AbstractEntityMinecoloniesRaider && !mob.level().isClientSide() && mob.level().getBlockState(doorPos).getBlock() instanceof AbstractBlockGate)
             {

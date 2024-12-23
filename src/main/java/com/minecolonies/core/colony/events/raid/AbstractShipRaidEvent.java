@@ -12,6 +12,9 @@ import com.minecolonies.api.entity.mobs.AbstractEntityMinecoloniesRaider;
 import com.minecolonies.api.entity.mobs.RaiderMobUtils;
 import com.minecolonies.api.util.*;
 import com.minecolonies.api.util.MessageUtils.MessagePriority;
+import com.minecolonies.api.util.Tuple;
+import com.minecolonies.api.util.WorldUtil;
+import com.minecolonies.api.util.constant.ColonyConstants;
 import com.minecolonies.core.colony.events.raid.pirateEvent.ShipBasedRaiderUtils;
 import com.minecolonies.core.colony.events.raid.pirateEvent.ShipSize;
 import com.minecolonies.core.entity.pathfinding.pathresults.PathResult;
@@ -311,15 +314,9 @@ public abstract class AbstractShipRaidEvent implements IColonyRaidEvent, IColony
     }
 
     @Override
-    public void setMercyEnd()
-    {
-        // Noop, the sailing away message is fine.
-    }
-
-    @Override
     public void onFinish()
     {
-        MessageUtils.format(PIRATES_SAILING_OFF_MESSAGE, BlockPosUtil.calcDirection(colony.getCenter(), spawnPoint).getLongText(), colony.getName())
+        MessageUtils.format(PIRATES_SAILING_OFF_MESSAGE, BlockPosUtil.calcDirection(colony.getCenter(), spawnPoint).getLongText())
           .sendTo(colony).forManagers();
         for (final Entity entity : raiders.keySet())
         {
@@ -338,12 +335,22 @@ public abstract class AbstractShipRaidEvent implements IColonyRaidEvent, IColony
             spawners.remove(te.getBlockPos());
 
             raidBar.setProgress((float) spawners.size() / maxSpawners);
-            // remove at nightfall after spawners are killed.
-            if (spawners.isEmpty())
-            {
-                daysToGo = 2;
-                MessageUtils.format(ALL_PIRATE_SPAWNERS_DESTROYED_MESSAGE, colony.getName()).sendTo(colony).forManagers();
-            }
+            checkRaidEnd();
+        }
+    }
+
+    /**
+     * Checks if the raid got defeated, announces it and sets the remaining days for the ship
+     */
+    private void checkRaidEnd()
+    {
+        if (raiders.isEmpty() && spawners.isEmpty())
+        {
+            status = EventStatus.WAITING;
+            colony.getRaiderManager().onRaidEventFinished(this);
+            daysToGo = 1;
+            MessageUtils.format(INDIVIDUAL_RAID_FINISH + "." + this.getEventTypeID().getPath() + ColonyConstants.rand.nextInt(3),
+              BlockPosUtil.calcDirection(colony.getCenter(), spawnPoint).getLongText()).sendTo(colony, true).forManagers();
         }
     }
 
@@ -360,26 +367,17 @@ public abstract class AbstractShipRaidEvent implements IColonyRaidEvent, IColony
     @Override
     public void onEntityDeath(final LivingEntity entity)
     {
-        raiders.remove(entity);
-        if (raiders.isEmpty() && spawners.isEmpty())
-        {
-            status = EventStatus.WAITING;
-            MessageUtils.format(ALL_PIRATES_KILLED_MESSAGE, colony.getName()).sendTo(colony).forManagers();
-        }
         spawnerThresholdKillTracker++;
 
         if (!spawners.isEmpty() && spawnerThresholdKillTracker > maxRaiderCount/maxSpawners)
         {
-            MessageUtils.format(STRUCTURE_SPAWNER_BREAKS, colony.getName()).sendTo(colony).forManagers();
             colony.getWorld().removeBlock(spawners.remove(0), false);
             raidBar.setProgress((float) spawners.size() / maxSpawners);
             spawnerThresholdKillTracker = 0;
-            if (spawners.isEmpty())
-            {
-                daysToGo = 1;
-                MessageUtils.format(ALL_PIRATE_SPAWNERS_DESTROYED_MESSAGE, colony.getName()).sendTo(colony).forManagers();
-            }
         }
+
+        raiders.remove(entity);
+        checkRaidEnd();
     }
 
     @Override
