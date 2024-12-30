@@ -71,7 +71,7 @@ public class EntityAIConcreteMixer extends AbstractEntityAICrafting<JobConcreteM
         final int slot = getSlotWithPowder();
         if (slot == -1)
         {
-            if (InventoryUtils.hasItemInItemHandler(building.getItemHandlerCap(), CONCRETE))
+            if (InventoryUtils.getCountFromBuilding(building, CONCRETE) > 0)
             {
                 needsCurrently = new Tuple<>(CONCRETE, STACKSIZE);
                 return GATHERING_REQUIRED_MATERIALS;
