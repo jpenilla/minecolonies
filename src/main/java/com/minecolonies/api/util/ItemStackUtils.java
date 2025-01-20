@@ -105,12 +105,12 @@ public final class ItemStackUtils
     /**
      * Predicate describing things which work in the furnace.
      */
-    public static Predicate<ItemStack> IS_SMELTABLE;
+    public static Predicate<ItemStack> IS_SMELTABLE = itemStack -> !ItemStackUtils.isEmpty(FurnaceRecipes.getInstance().getSmeltingResult(itemStack));
 
     /**
      * Predicate describing cookables.
      */
-    public static Predicate<ItemStack> ISCOOKABLE;
+    public static Predicate<ItemStack> ISCOOKABLE = itemStack -> ItemStackUtils.ISFOOD.test(FurnaceRecipes.getInstance().getSmeltingResult(itemStack));
 
     /**
      * Predicate to check for compost items.

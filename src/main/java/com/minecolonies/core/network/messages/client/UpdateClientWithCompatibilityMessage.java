@@ -52,7 +52,6 @@ public class UpdateClientWithCompatibilityMessage extends AbstractClientPlayMess
     protected void onExecute(final IPayloadContext ctxIn, final Player player)
     {
         final ClientLevel world = Minecraft.getInstance().level;
-        FurnaceRecipes.getInstance().loadUtilityPredicates();
         try
         {
             IMinecoloniesAPI.getInstance().getColonyManager().getCompatibilityManager().deserialize(this.buffer, world);

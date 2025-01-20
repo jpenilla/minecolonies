@@ -5,8 +5,6 @@ import com.minecolonies.api.colony.requestsystem.StandardFactoryController;
 import com.minecolonies.api.compatibility.IFurnaceRecipes;
 import com.minecolonies.api.crafting.ItemStorage;
 import com.minecolonies.api.crafting.RecipeStorage;
-import com.minecolonies.api.util.FoodUtils;
-import com.minecolonies.api.util.ItemStackUtils;
 import com.minecolonies.api.util.constant.TypeConstants;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
@@ -24,15 +22,15 @@ import java.util.Map;
 public class FurnaceRecipes implements IFurnaceRecipes
 {
     /**
+     * Instance of the furnace recipes.
+     */
+    private static FurnaceRecipes instance;
+
+    /**
      * Furnace recipes.
      */
     private Map<ItemStorage, RecipeStorage> recipes = new HashMap<>();
     private Map<ItemStorage, RecipeStorage> reverseRecipes = new HashMap<>();
-
-    /**
-     * Instance of the furnace recipes.
-     */
-    public static FurnaceRecipes instance;
 
     /**
      * Load all the recipes in the recipe storage.
@@ -43,7 +41,6 @@ public class FurnaceRecipes implements IFurnaceRecipes
     {
         recipes.clear();
         reverseRecipes.clear();
-        loadUtilityPredicates();
         recipeManager.getAllRecipesFor(RecipeType.SMELTING).forEach(holder -> {
             final SmeltingRecipe recipe = holder.value();
             final NonNullList<Ingredient> list = recipe.getIngredients();
@@ -71,17 +68,6 @@ public class FurnaceRecipes implements IFurnaceRecipes
                 }
             }
         });
-    }
-
-    /**
-     * Load all the utility predicates.
-     */
-    public void loadUtilityPredicates()
-    {
-        ItemStackUtils.IS_SMELTABLE = itemStack -> !ItemStackUtils.isEmpty(instance.getSmeltingResult(itemStack));
-        ItemStackUtils.ISCOOKABLE = itemStack -> ItemStackUtils.ISFOOD.test(instance.getSmeltingResult(itemStack));
-        FoodUtils.EDIBLE =
-                itemStack -> ItemStackUtils.ISFOOD.test(itemStack) && !ItemStackUtils.ISCOOKABLE.test(itemStack);
     }
 
     @Override
