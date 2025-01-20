@@ -147,6 +147,54 @@ public class EventHandler
     {
         if (event.getName().equals(BuiltInLootTables.SIMPLE_DUNGEON.location()))
         {
+            buildCropDrops();
+        }
+
+        final List<MinecoloniesCropBlock> crops = cropDrops.get(event.getName());
+        if (crops != null)
+        {
+            // grass blocks have a lot of crops (both MineColonies and vanilla) so the base drop chance is reduced
+            final float chance = event.getName().equals(Blocks.GRASS.getLootTable()) ? 0.001f : 0.01f;
+
+            for (final MinecoloniesCropBlock crop : crops)
+            {
+                final LootPool.Builder pool = LootPool.lootPool();
+                if (crop.getPreferredBiome() != null)
+                {
+                    pool.when(EntityInBiomeTag.of(crop.getPreferredBiome()));
+                }
+                pool.when(ModLootConditions.HAS_NO_SHEARS_OR_SILK_TOUCH);
+
+                pool.add(AlternativesEntry.alternatives()
+                    .otherwise(LootItem.lootTableItem(crop)
+                        .when(ModLootConditions.HAS_NETHERITE_HOE)
+                        .when(LootItemRandomChanceCondition.randomChance(chance * 4f)))
+                    .otherwise(LootItem.lootTableItem(crop)
+                        .when(ModLootConditions.HAS_DIAMOND_HOE)
+                        .when(LootItemRandomChanceCondition.randomChance(chance * 3.5f)))
+                    .otherwise(LootItem.lootTableItem(crop)
+                        .when(ModLootConditions.HAS_IRON_HOE)
+                        .when(LootItemRandomChanceCondition.randomChance(chance * 3f)))
+                    .otherwise(LootItem.lootTableItem(crop)
+                        .when(ModLootConditions.HAS_GOLDEN_HOE)
+                        .when(LootItemRandomChanceCondition.randomChance(chance * 2.5f)))
+                    .otherwise(LootItem.lootTableItem(crop)
+                        .when(ModLootConditions.HAS_HOE
+                            .and(ModLootConditions.HAS_NETHERITE_HOE.invert())
+                            .and(ModLootConditions.HAS_DIAMOND_HOE.invert())
+                            .and(ModLootConditions.HAS_IRON_HOE.invert())
+                            .and(ModLootConditions.HAS_GOLDEN_HOE.invert()))
+                        .when(LootItemRandomChanceCondition.randomChance(chance * 2f)))
+                    .otherwise(LootItem.lootTableItem(crop)
+                        .when(ModLootConditions.HAS_HOE.invert())
+                        .when(LootItemRandomChanceCondition.randomChance(chance))));
+
+                event.getTable().addPool(pool.build());
+            }
+        }
+
+        if (event.getName().equals(BuiltInLootTables.SIMPLE_DUNGEON))
+        {
             final LootPool.Builder pool = LootPool.lootPool();
             for (final MinecoloniesCropBlock crop : ModBlocks.getCrops())
             {
