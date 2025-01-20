@@ -1594,6 +1594,13 @@ public class EntityCitizen extends AbstractEntityCitizen implements IThreatTable
         super.die(damageSource);
     }
 
+    @Override
+    public void remove(final @NotNull RemovalReason reason)
+    {
+        super.remove(reason);
+        IMinecoloniesAPI.getInstance().getEventBus().post(new CitizenRemovedModEvent(citizenColonyHandler.getColony(), citizenId, reason));
+    }
+
     /**
      * Trigger the corresponding death achievement.
      *
