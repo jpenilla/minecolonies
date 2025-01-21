@@ -115,29 +115,32 @@ public final class ModCreativeTabs
           output.accept(ModItems.goldenBread);
           output.accept(ModItems.chorusBread);
 
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_BARBARIAN));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERBARBARIAN));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_CHIEFBARBARIAN));
+          if (SpawnEggItem.byId(ModEntities.CAMP_BARBARIAN) != null)
+          {
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_BARBARIAN));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERBARBARIAN));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_CHIEFBARBARIAN));
 
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_PIRATE));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERPIRATE));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_CHIEFPIRATE));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_PIRATE));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERPIRATE));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_CHIEFPIRATE));
 
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_MUMMY));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERMUMMY));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_PHARAO));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_MUMMY));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_ARCHERMUMMY));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_PHARAO));
 
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_SHIELDMAIDEN));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_NORSEMEN_ARCHER));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_NORSEMEN_CHIEF));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_SHIELDMAIDEN));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_NORSEMEN_ARCHER));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_NORSEMEN_CHIEF));
 
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZON));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZONSPEARMAN));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZONCHIEF));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZON));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZONSPEARMAN));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_AMAZONCHIEF));
 
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_PIRATE));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_ARCHERPIRATE));
-          output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_CHIEFPIRATE));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_PIRATE));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_ARCHERPIRATE));
+                output.accept(SpawnEggItem.byId(ModEntities.CAMP_DROWNED_CHIEFPIRATE));
+          }
 
       }).build());
 

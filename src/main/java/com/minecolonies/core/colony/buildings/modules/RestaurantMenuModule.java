@@ -13,6 +13,7 @@ import com.minecolonies.api.colony.requestsystem.token.IToken;
 import com.minecolonies.api.crafting.ItemStorage;
 import com.minecolonies.api.crafting.RecipeStorage;
 import com.minecolonies.api.util.*;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -202,7 +203,7 @@ public class RestaurantMenuModule extends AbstractBuildingModule implements IPer
         final ListTag minimumStockTagList = compound.getList(TAG_MENU, Tag.TAG_COMPOUND);
         for (int i = 0; i < minimumStockTagList.size(); i++)
         {
-            final ItemStack itemStack = ItemStack.of(minimumStockTagList.getCompound(i));
+            final ItemStack itemStack = ItemStack.parseOptional(provider, minimumStockTagList.getCompound(i));
             if (FoodUtils.EDIBLE.test(itemStack))
             {
                 menu.add(new ItemStorage(itemStack));

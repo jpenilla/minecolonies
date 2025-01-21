@@ -48,11 +48,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -62,7 +62,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:bell_pepper"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:bell_pepper"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:bell_pepper"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:bell_pepper"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -120,11 +234,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -134,7 +248,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:chickpea"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:chickpea"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:chickpea"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:chickpea"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -188,11 +416,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -202,7 +430,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:durum"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:durum"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:durum"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:durum"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -256,11 +598,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -270,7 +612,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:eggplant"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:eggplant"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:eggplant"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:eggplant"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -324,11 +780,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -338,7 +794,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:garlic"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:garlic"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:garlic"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:garlic"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -392,11 +962,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -406,7 +976,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:onion"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:onion"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:onion"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:onion"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -464,11 +1148,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -478,7 +1162,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:soybean"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:soybean"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:soybean"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:soybean"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -536,11 +1334,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -550,7 +1348,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:tomato"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:tomato"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:tomato"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:tomato"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -608,11 +1520,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -622,7 +1534,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:corn"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:corn"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:corn"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:corn"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -680,11 +1706,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -694,7 +1720,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:nether_pepper"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:nether_pepper"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:nether_pepper"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:nether_pepper"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -752,11 +1892,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -766,7 +1906,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:peas"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:peas"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:peas"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:peas"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -820,11 +2074,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -834,7 +2088,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:mint"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:mint"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:mint"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:mint"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -892,11 +2260,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.004,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -906,7 +2274,121 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "chance": 0.01,
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:butternut_squash"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.003,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:butternut_squash"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.0025000002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:butternut_squash"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.002,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:butternut_squash"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
+                {
+                  "chance": 0.001,
                   "condition": "minecraft:random_chance"
                 }
               ],

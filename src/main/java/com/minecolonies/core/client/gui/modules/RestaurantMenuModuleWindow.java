@@ -274,8 +274,8 @@ public class RestaurantMenuModuleWindow extends AbstractModuleWindow
     protected void applySorting(final List<ItemStorage> displayedList)
     {
         displayedList.sort((o1, o2) -> {
-            int score = o1.getItem() instanceof IMinecoloniesFoodItem foodItem ? foodItem.getTier()* -100 : -o1.getItemStack().getFoodProperties(null).getNutrition();
-            int score2 = o2.getItem() instanceof IMinecoloniesFoodItem foodItem2 ? foodItem2.getTier()* -100 : -o2.getItemStack().getFoodProperties(null).getNutrition();
+            int score = o1.getItem() instanceof IMinecoloniesFoodItem foodItem ? foodItem.getTier()* -100 : -o1.getItemStack().getFoodProperties(null).nutrition();
+            int score2 = o2.getItem() instanceof IMinecoloniesFoodItem foodItem2 ? foodItem2.getTier()* -100 : -o2.getItemStack().getFoodProperties(null).nutrition();
 
             final int scoreComparison = Integer.compare(score, score2);
             if (scoreComparison != 0)

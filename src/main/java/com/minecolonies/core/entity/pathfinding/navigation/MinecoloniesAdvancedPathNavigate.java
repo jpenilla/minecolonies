@@ -400,7 +400,7 @@ public class MinecoloniesAdvancedPathNavigate extends AbstractAdvancedPathNaviga
             pathResult.setStatus(PathFindingStatus.COMPLETE);
 
             // Cleanup pathresult if the entity forgot about it
-            if (ourEntity.level.getGameTime() - finishTime > TICKS_SECOND * 20 + pauseTickBackupAmount)
+            if (ourEntity.level().getGameTime() - finishTime > TICKS_SECOND * 20 + pauseTickBackupAmount)
             {
                 pathResult = null;
             }
@@ -937,9 +937,9 @@ public class MinecoloniesAdvancedPathNavigate extends AbstractAdvancedPathNaviga
                  return;
             }
 
-            if (!pEx.isOnRails() && ourEntity.vehicle != null)
+            if (!pEx.isOnRails() && ourEntity.getVehicle() != null)
             {
-                final Entity entity = ourEntity.vehicle;
+                final Entity entity = ourEntity.getVehicle();
                 ourEntity.stopRiding();
                 entity.remove(Entity.RemovalReason.DISCARDED);
             }
@@ -1031,7 +1031,7 @@ public class MinecoloniesAdvancedPathNavigate extends AbstractAdvancedPathNaviga
      */
     private void onPathFinish()
     {
-        finishTime = ourEntity.level.getGameTime();
+        finishTime = ourEntity.level().getGameTime();
         super.stop();
     }
 
@@ -1062,9 +1062,9 @@ public class MinecoloniesAdvancedPathNavigate extends AbstractAdvancedPathNaviga
         safeDestinationPos = BlockPos.ZERO;
         stuckHandler.resetGlobalStuckTimers();
 
-        if (ourEntity.vehicle != null)
+        if (ourEntity.getVehicle() != null)
         {
-            final Entity entity = ourEntity.vehicle;
+            final Entity entity = ourEntity.getVehicle();
             ourEntity.stopRiding();
             entity.remove(Entity.RemovalReason.DISCARDED);
         }

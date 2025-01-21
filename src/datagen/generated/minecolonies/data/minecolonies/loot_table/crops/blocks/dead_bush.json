@@ -48,11 +48,11 @@
                 {
                   "condition": "minecraft:match_tool",
                   "predicate": {
-                    "items": "#minecraft:hoes"
+                    "items": "minecraft:netherite_hoe"
                   }
                 },
                 {
-                  "chance": 0.1,
+                  "chance": 0.04,
                   "condition": "minecraft:random_chance"
                 }
               ],
@@ -61,6 +61,120 @@
             {
               "type": "minecraft:item",
               "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:diamond_hoe"
+                  }
+                },
+                {
+                  "chance": 0.035,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:chickpea"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:iron_hoe"
+                  }
+                },
+                {
+                  "chance": 0.03,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:chickpea"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:golden_hoe"
+                  }
+                },
+                {
+                  "chance": 0.024999999,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:chickpea"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:all_of",
+                  "terms": [
+                    {
+                      "condition": "minecraft:match_tool",
+                      "predicate": {
+                        "items": "#minecraft:hoes"
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:netherite_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:diamond_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:iron_hoe"
+                        }
+                      }
+                    },
+                    {
+                      "condition": "minecraft:inverted",
+                      "term": {
+                        "condition": "minecraft:match_tool",
+                        "predicate": {
+                          "items": "minecraft:golden_hoe"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "chance": 0.02,
+                  "condition": "minecraft:random_chance"
+                }
+              ],
+              "name": "minecolonies:chickpea"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "condition": "minecraft:match_tool",
+                    "predicate": {
+                      "items": "#minecraft:hoes"
+                    }
+                  }
+                },
                 {
                   "chance": 0.01,
                   "condition": "minecraft:random_chance"

@@ -16,6 +16,7 @@ import com.minecolonies.api.items.IMinecoloniesFoodItem;
 import com.minecolonies.api.items.ModItems;
 import com.minecolonies.api.items.ModTags;
 import com.minecolonies.core.util.AdvancementUtils;
+import com.minecolonies.core.util.FurnaceRecipes;
 import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.client.resources.language.I18n;
