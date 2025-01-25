@@ -893,7 +893,8 @@ public class EntityAIWorkAlchemist extends AbstractEntityAICrafting<JobAlchemist
             if (isEmpty(((BrewingStandBlockEntity) entity).getItem(0)) || isEmpty(((BrewingStandBlockEntity) entity).getItem(1))
                   || isEmpty(((BrewingStandBlockEntity) entity).getItem(2)))
             {
-                final ItemStack potionStack = currentRecipeStorage.getCleanedInput().get(1).getItemStack();
+
+                final ItemStack potionStack = currentRecipeStorage.getCleanedInput().get(0).getItemStack();
 
                 final Predicate<ItemStack> potion = stack -> ItemStackUtils.compareItemStacksIgnoreStackSize(potionStack, stack);
 
@@ -961,7 +962,7 @@ public class EntityAIWorkAlchemist extends AbstractEntityAICrafting<JobAlchemist
             }
             else if (isEmpty(((BrewingStandBlockEntity) entity).getItem(INGREDIENT_SLOT)))
             {
-                final ItemStack ingredientStack = currentRecipeStorage.getCleanedInput().get(0).getItemStack();
+                final ItemStack ingredientStack = currentRecipeStorage.getCleanedInput().get(1).getItemStack();
                 final Predicate<ItemStack> ingredient = stack -> ItemStackUtils.compareItemStacksIgnoreStackSize(ingredientStack, stack);
                 final int ingredientInBrewingStand = getExtendedCount(ingredientStack);
                 final int targetCount =
