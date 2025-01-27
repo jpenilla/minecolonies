@@ -645,15 +645,6 @@ public class EntityAIWorkFarmer extends AbstractEntityAICrafting<JobFarmer, Buil
         position = findHarvestableSurface(position);
         if (position != null)
         {
-            if (Compatibility.isPamsInstalled())
-            {
-                worker.getCitizenExperienceHandler().addExperience(XP_PER_HARVEST);
-                harvestCrop(position.above());
-                worker.getCitizenColonyHandler().getColonyOrRegister().getStatisticsManager().increment(CROPS_HARVESTED, worker.getCitizenColonyHandler().getColonyOrRegister().getDay());
-
-                return true;
-            }
-
             if (mineBlock(position.above()))
             {
                 worker.getCitizenColonyHandler().getColonyOrRegister().getStatisticsManager().increment(CROPS_HARVESTED, worker.getCitizenColonyHandler().getColonyOrRegister().getDay());
@@ -874,45 +865,6 @@ public class EntityAIWorkFarmer extends AbstractEntityAICrafting<JobFarmer, Buil
     public int getBreakSpeedLevel()
     {
         return getSecondarySkillLevel();
-    }
-
-    /**
-     * Harvest the crop (only if pams is installed).
-     *
-     * @param pos the position to harvest.
-     */
-    private void harvestCrop(@NotNull final BlockPos pos)
-    {
-        final ItemStack tool = worker.getMainHandItem();
-
-        final int fortune = ItemStackUtils.getFortuneOf(tool, world);
-        final BlockState state = world.getBlockState(pos);
-
-        final double chance = worker.getCitizenColonyHandler().getColonyOrRegister().getResearchManager().getResearchEffects().getEffectStrength(FARMING);
-
-        final NonNullList<ItemStack> drops = NonNullList.create();
-        state.getDrops(new LootParams.Builder((ServerLevel) world).withLuck(fortune)
-                         .withLuck(fortune)
-                         .withParameter(LootContextParams.ORIGIN, worker.position())
-                         .withParameter(LootContextParams.TOOL, tool)
-                         .withParameter(LootContextParams.THIS_ENTITY, getCitizen()));
-        for (final ItemStack item : drops)
-        {
-            final ItemStack drop = item.copy();
-            if (worker.getRandom().nextDouble() < chance)
-            {
-                drop.setCount(drop.getCount() * 2);
-            }
-            InventoryUtils.addItemStackToItemHandler(worker.getInventoryCitizen(), drop);
-        }
-
-        if (state.getBlock() instanceof final CropBlock crops)
-        {
-            world.setBlockAndUpdate(pos, crops.getStateForAge(0));
-        }
-
-        this.incrementActionsDone();
-        worker.decreaseSaturationForContinuousAction();
     }
 
     /**

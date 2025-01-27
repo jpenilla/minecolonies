@@ -9,7 +9,6 @@ import net.minecraft.world.effect.MobEffects;
 public final class Constants
 {
     public static final String MOD_ID                           = "minecolonies";
-    public static final String HARVESTCRAFTMODID                = "harvestcraft";
     public static final int    CITIZEN_RESPAWN_INTERVAL_MIN     = 10;
     public static final int    CITIZEN_RESPAWN_INTERVAL_MAX     = 600;
     public static final int    MAX_BUILDING_LEVEL               = 5;
