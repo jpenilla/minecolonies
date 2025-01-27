@@ -45,7 +45,6 @@ import static com.minecolonies.core.event.TextureReloadListener.TEXTURE_PACKS;
  */
 public class WindowMainPage extends AbstractWindowTownHall
 {
-
     /**
      * Is the special feature unlocked.
      */
@@ -75,8 +74,6 @@ public class WindowMainPage extends AbstractWindowTownHall
      * The initial texture index.
      */
     private int initialNamePackIndex;
-
-
 
     /**
      * Label for the colony name.
@@ -260,8 +257,8 @@ public class WindowMainPage extends AbstractWindowTownHall
         final Pane textPane = findPaneByID(DROPDOWN_TEXT_ID);
         final Pane namePane = findPaneByID(DROPDOWN_NAME_ID);
         final Pane resetButton = findPaneByID(BUTTON_RESET_TEXTURE);
-
-        if (isFeatureUnlocked.get())
+        final boolean isOwner = building.getColony().getPermissions().getOwner().equals(Minecraft.getInstance().player.getUUID());
+        if (isFeatureUnlocked.get() && isOwner)
         {
             findPaneByID(BUTTON_PATREON).hide();
             textPane.enable();
@@ -297,6 +294,16 @@ public class WindowMainPage extends AbstractWindowTownHall
               .appendNL(Component.empty())
               .appendNL(Component.translatableEscape("com.minecolonies.core.townhall.patreon")).paragraphBreak()
               .build();
+
+            if (isFeatureUnlocked.get() && !isOwner)
+            {
+                textPaneToolTipBuilder.appendNL(Component.empty());
+                namePaneToolTipBuilder.appendNL(Component.empty());
+                textPaneToolTipBuilder.appendNL(Component.translatable("com.minecolonies.core.townhall.patreon.needs_owner"));
+                namePaneToolTipBuilder.appendNL(Component.translatable("com.minecolonies.core.townhall.patreon.needs_owner"));
+            }
+            textPaneToolTipBuilder.build();
+            namePaneToolTipBuilder.build();
         }
     }
 
@@ -305,7 +312,7 @@ public class WindowMainPage extends AbstractWindowTownHall
      */
     public void checkFeatureUnlock()
     {
-        if (isFeatureUnlocked.get() || !building.getColony().getPermissions().getOwner().equals(Minecraft.getInstance().player.getUUID()))
+        if (isFeatureUnlocked.get())
         {
             return;
         }
