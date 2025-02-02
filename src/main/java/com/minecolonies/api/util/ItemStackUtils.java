@@ -817,8 +817,10 @@ public final class ItemStackUtils
     {
         final ICitizenData citizenData = citizen.getCitizenData();
         final double satIncrease = FoodUtils.getFoodValue(foodStack, citizen);
-        ItemStack itemUseReturn = FoodUtils.consumeFoodStack(foodStack, citizen);
+        citizenData.increaseSaturation(satIncrease);
 
+        ItemStack itemUseReturn = foodStack.finishUsingItem(citizen.level(), citizen);
+        // Special handling for these as those are stackable + have a return per item.
         if (player != null && player.hasInfiniteMaterials())
         {
             itemUseReturn = ItemStack.EMPTY;
