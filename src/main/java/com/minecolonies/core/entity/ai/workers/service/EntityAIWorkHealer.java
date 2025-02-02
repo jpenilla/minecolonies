@@ -146,7 +146,7 @@ public class EntityAIWorkHealer extends AbstractEntityAIInteract<JobHealer, Buil
                     return FREE_CURE;
                 }
 
-                if (!InventoryUtils.isItemHandlerFull(citizen.getInventoryCitizen()))
+                if (citizen.getInventoryCitizen().hasSpace())
                 {
                     if (hasCureInInventory(disease, worker.getInventoryCitizen()) || hasCureInInventory(disease, building.getItemHandlerCap()))
                     {
@@ -358,7 +358,7 @@ public class EntityAIWorkHealer extends AbstractEntityAIInteract<JobHealer, Buil
             {
                 if (InventoryUtils.getItemCountInItemHandler(citizen.getInventoryCitizen(), Disease.hasCureItem(cure)) < cure.getAmount())
                 {
-                    if (InventoryUtils.isItemHandlerFull(citizen.getInventoryCitizen()))
+                    if (!citizen.getInventoryCitizen().hasSpace())
                     {
                         data.triggerInteraction(new StandardInteraction(Component.translatableEscape(PATIENT_FULL_INVENTORY), ChatPriority.BLOCKING));
                         currentPatient = null;
