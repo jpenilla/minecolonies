@@ -883,7 +883,7 @@ public final class ColonyManager implements IColonyManager
     @Override
     public Map<ChunkPos, IChunkClaimData> getClaimData(final ResourceKey<Level> dimension)
     {
-        final Map<Long, ChunkClaimData> map = this.chunkClaimData.getOrDefault(dimension, new Long2ObjectOpenHashMap<>());
+        final Map<Long, ChunkClaimData> map = this.chunkClaimData.computeIfAbsent(dimension, (k) -> new Long2ObjectOpenHashMap<>());
         return Maps.asMap(map.keySet().stream().map(ChunkPos::new).collect(Collectors.toSet()),
                 p -> map.getOrDefault(p.toLong(), null));
     }
@@ -892,7 +892,7 @@ public final class ColonyManager implements IColonyManager
     @Override
     public IChunkClaimData getClaimData(final ResourceKey<Level> dimension, final ChunkPos pos)
     {
-        return this.chunkClaimData.getOrDefault(dimension, new Long2ObjectOpenHashMap<>()).getOrDefault(pos.toLong(), null);
+        return this.chunkClaimData.computeIfAbsent(dimension, (k) -> new Long2ObjectOpenHashMap<>()).getOrDefault(pos.toLong(), null);
     }
 
     @Override

@@ -32,12 +32,11 @@ public class SupplyLoot extends LootModifier
 {
     public static final DeferredRegister<MapCodec<? extends IGlobalLootModifier>> GLM = DeferredRegister.create(NeoForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, MOD_ID);
 
-    public static final Supplier<MapCodec<SupplyLoot>>    SHIP_CODEC = Suppliers.memoize(() -> RecordCodecBuilder.mapCodec(inst -> LootModifier.codecStart(inst).apply(inst, (co) -> new SupplyLoot(co, false))));
+    public static final Supplier<MapCodec<SupplyLoot>> SHIP_CODEC = Suppliers.memoize(() -> RecordCodecBuilder.mapCodec(inst -> LootModifier.codecStart(inst).apply(inst, (co) -> new SupplyLoot(co, false))));
     public static final Supplier<MapCodec<SupplyLoot>> CAMP_CODEC = Suppliers.memoize(() -> RecordCodecBuilder.mapCodec(inst -> LootModifier.codecStart(inst).apply(inst, (co) -> new SupplyLoot(co, true))));
 
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<SupplyLoot>> SUPPLYSHIP_LOOT = GLM.register("supplyship_loot", SupplyLoot.SHIP_CODEC);
     public static final DeferredHolder<MapCodec<? extends IGlobalLootModifier>, MapCodec<SupplyLoot>> SUPPLYCAMP_LOOT = GLM.register("supplycamp_loot", SupplyLoot.CAMP_CODEC);
-
 
     /**
      * Resource locations, path and names must fit the existing json file.
@@ -47,11 +46,6 @@ public class SupplyLoot extends LootModifier
 
     // If we need more we need a static block and put things into a map ResourceLocation-codec
     private final boolean camp;
-
-    /**
-     * Maps vanilla lootable resource location to our loot pool to add.
-     */
-    private Map<ResourceLocation, ResourceLocation> lootTables = new HashMap<>();
 
     public SupplyLoot(final LootItemCondition[] conditionsIn, final boolean camp)
     {
@@ -68,12 +62,12 @@ public class SupplyLoot extends LootModifier
             if (camp)
             {
                 LootTable stingerLootTable = lootContext.getLevel().getServer().reloadableRegistries().getLootTable(ResourceKey.create(Registries.LOOT_TABLE, SUPPLY_CAMP_LT));
-                stingerLootTable.getRandomItems(lootContext, generatedLoot::add);
+                stingerLootTable.getRandomItemsRaw(lootContext, generatedLoot::add);
             }
             else
             {
                 LootTable stingerLootTable = lootContext.getLevel().getServer().reloadableRegistries().getLootTable(ResourceKey.create(Registries.LOOT_TABLE, SUPPLY_SHIP_LT));
-                stingerLootTable.getRandomItems(lootContext, generatedLoot::add);
+                stingerLootTable.getRandomItemsRaw(lootContext, generatedLoot::add);
             }
         }
         return generatedLoot;
@@ -85,3 +79,4 @@ public class SupplyLoot extends LootModifier
         return camp ? CAMP_CODEC.get() : SHIP_CODEC.get();
     }
 }
+

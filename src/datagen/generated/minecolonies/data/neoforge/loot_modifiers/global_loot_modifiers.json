@@ -5,7 +5,9 @@
     "minecolonies:crops/blocks/small_dripleaf",
     "minecolonies:crops/blocks/seagrass",
     "minecolonies:crops/blocks/short_grass",
-    "minecolonies:crops/blocks/fern"
+    "minecolonies:crops/blocks/fern",
+    "minecolonies:supplycamp_loot",
+    "minecolonies:supplyship_loot"
   ],
   "replace": false
 }
