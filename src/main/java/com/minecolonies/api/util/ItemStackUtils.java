@@ -819,7 +819,7 @@ public final class ItemStackUtils
         final double satIncrease = FoodUtils.getFoodValue(foodStack, citizen);
         citizenData.increaseSaturation(satIncrease);
 
-        ItemStack itemUseReturn = foodStack.finishUsingItem(citizen.level(), citizen);
+        ItemStack itemUseReturn = FoodUtils.consumeFoodStack(foodStack, citizen);
         // Special handling for these as those are stackable + have a return per item.
         if (player != null && player.hasInfiniteMaterials())
         {
