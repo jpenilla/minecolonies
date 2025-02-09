@@ -1,5 +1,6 @@
 package com.minecolonies.core.items;
 
+import com.ldtteam.structurize.util.BlockUtils;
 import com.minecolonies.api.colony.IColony;
 import com.minecolonies.api.items.component.Desc;
 import com.minecolonies.api.util.BlockPosUtil;
@@ -67,7 +68,7 @@ public class ItemScrollColonyTP extends AbstractItemScroll
                   player.blockPosition().relative(dir, 10),
                   5,
                   5,
-                  (predWorld, predPos) -> predWorld.getBlockState(predPos).isAir() && predWorld.getBlockState(predPos.above()).isAir());
+                  (predWorld, predPos) -> BlockUtils.isAnySolid(predWorld.getBlockState(predPos.below())) && predWorld.getBlockState(predPos).isAir() && predWorld.getBlockState(predPos.above()).isAir());
                 if (pos != null)
                 {
                     break;

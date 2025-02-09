@@ -131,6 +131,11 @@ public class EntityAIConcreteMixer extends AbstractEntityAICrafting<JobConcreteM
                     currentRecipeStorage = null;
                     resetValues();
 
+                    if (inventoryNeedsDump() && job.getMaxCraftingCount() == 0 && job.getProgress() == 0 && job.getCraftCounter() == 0 && currentRequest != null)
+                    {
+                        worker.getCitizenExperienceHandler().addExperience(currentRequest.getRequest().getCount() / 2.0);
+                    }
+
                     return START_WORKING;
                 }
             }
