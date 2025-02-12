@@ -291,7 +291,7 @@ public class EntityAIWorkHealer extends AbstractEntityAIInteract<JobHealer, Buil
                 }
                 if (!hasRequest)
                 {
-                    worker.getCitizenData().createRequestAsync(new Stack(cure));
+                    worker.getCitizenData().createRequestAsync(new Stack(cure.getItemStack(), REQUEST_COUNT, 1));
                 }
             }
         }
