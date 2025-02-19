@@ -23,6 +23,7 @@ import com.minecolonies.api.tileentities.ITickable;
 import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
 import com.minecolonies.api.util.ItemStackUtils;
 import com.minecolonies.api.util.WorldUtil;
+import com.minecolonies.core.colony.buildings.AbstractBuildingContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -32,6 +33,7 @@ import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -444,7 +446,7 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
     @Override
     public void tick()
     {
-        if (combinedInv != null)
+        if (this.building instanceof AbstractBuildingContainer container && container.pollContainerListChanged())
         {
             invalidateCapabilities();
             combinedInv = null;
@@ -595,6 +597,18 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
                                 {
                                     handlers.add(rack.getInventory());
                                     rack.setBuildingPos(this.getBlockPos());
+                                    if (world instanceof ServerLevel serverLevel)
+                                    {
+                                        serverLevel.registerCapabilityListener(rack.getBlockPos(), () -> {
+                                            if (!WorldUtil.isBlockLoaded(world, pos) || world.getBlockEntity(pos) != te)
+                                            {
+                                                return false;
+                                            }
+                                            this.combinedInv = null;
+                                            this.invalidateCapabilities();
+                                            return true;
+                                        });
+                                    }
                                 }
                                 else
                                 {

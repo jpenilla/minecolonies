@@ -46,6 +46,11 @@ public abstract class AbstractBuildingContainer extends AbstractSchematicProvide
     protected final Set<BlockPos> containerList = new HashSet<>();
 
     /**
+     * Whether the container list has changed since the last capability rebuild.
+     */
+    private boolean containerListChanged = false;
+
+    /**
      * List of items the worker should keep. With the quantity and if he should keep it in the inventory as well.
      */
     protected final Map<Predicate<ItemStack>, Tuple<Integer, Boolean>> keepX = new HashMap<>();
@@ -71,6 +76,16 @@ public abstract class AbstractBuildingContainer extends AbstractSchematicProvide
         super(pos, colony);
     }
 
+    public boolean pollContainerListChanged()
+    {
+        if (containerListChanged)
+        {
+            containerListChanged = false;
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public void deserializeNBT(@NotNull final HolderLookup.Provider provider, final CompoundTag compound)
     {
@@ -79,6 +94,7 @@ public abstract class AbstractBuildingContainer extends AbstractSchematicProvide
         final ListTag containerTagList = compound.getList(TAG_CONTAINERS, Tag.TAG_INT_ARRAY);
         for (int i = 0; i < containerTagList.size(); ++i)
         {
+            this.containerListChanged = true;
             containerList.add(NBTUtils.readBlockPos(containerTagList.get(i)));
         }
         if (compound.contains(TAG_PRIO))
@@ -126,12 +142,14 @@ public abstract class AbstractBuildingContainer extends AbstractSchematicProvide
     @Override
     public void addContainerPosition(@NotNull final BlockPos pos)
     {
+        this.containerListChanged = true;
         containerList.add(pos);
     }
 
     @Override
     public void removeContainerPosition(final BlockPos pos)
     {
+        this.containerListChanged = true;
         containerList.remove(pos);
     }
 
