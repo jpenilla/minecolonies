@@ -465,7 +465,8 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
         for (BlockPos pos : this.pendingExternalInvRemovals.keySet())
         {
             this.pendingExternalInvRemovals.computeInt(pos, (key, curr) -> {
-                if (WorldUtil.isBlockLoaded(getLevel(), key) && getLevel().getBlockEntity(key) instanceof AbstractTileEntityRack) {
+                if (WorldUtil.isBlockLoaded(getLevel(), key) && getLevel().getBlockEntity(key) instanceof AbstractTileEntityRack)
+                {
                     recreateInv[0] = true;
                     return null;
                 }
