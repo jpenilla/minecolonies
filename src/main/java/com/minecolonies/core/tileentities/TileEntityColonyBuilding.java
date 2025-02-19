@@ -24,6 +24,8 @@ import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
 import com.minecolonies.api.util.ItemStackUtils;
 import com.minecolonies.api.util.WorldUtil;
 import com.minecolonies.core.colony.buildings.AbstractBuildingContainer;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import java.util.HashSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -122,6 +124,12 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
      * Capability invalidation listeners for external inventories.
      */
     private Set<ICapabilityInvalidationListener> capabilityInvalidationListeners;
+
+    /**
+     * Recently broken external inventories. This allows keeping validity when re-placing a rack quickly.
+     * Otherwise, the building will need repair.
+     */
+    private final Object2IntMap<BlockPos> pendingExternalInvRemovals = new Object2IntOpenHashMap<>();
 
     /**
      * Pending blueprint future.
@@ -453,7 +461,24 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
     @Override
     public void tick()
     {
-        if (this.building instanceof AbstractBuildingContainer container && container.pollContainerListChanged())
+        final boolean[] recreateInv = new boolean[]{false};
+        for (BlockPos pos : this.pendingExternalInvRemovals.keySet())
+        {
+            this.pendingExternalInvRemovals.computeInt(pos, (key, curr) -> {
+                if (WorldUtil.isBlockLoaded(getLevel(), key) && getLevel().getBlockEntity(key) instanceof TileEntityRack) {
+                    recreateInv[0] = true;
+                    return null;
+                }
+                curr--;
+                if (curr == 0)
+                {
+                    building.removeContainerPosition(key);
+                    return null;
+                }
+                return curr;
+            });
+        }
+        if (recreateInv[0] || this.building instanceof AbstractBuildingContainer container && container.pollContainerListChanged())
         {
             invalidateCapabilities();
             combinedInv = null;
@@ -639,7 +664,8 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
                         }
                         else
                         {
-                            building.removeContainerPosition(pos);
+                            // 10 seconds to re-place before repair is required to re-register the rack
+                            pendingExternalInvRemovals.putIfAbsent(pos, 20 * 10);
                         }
                     }
                 }
