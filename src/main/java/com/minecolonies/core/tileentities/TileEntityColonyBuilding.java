@@ -457,6 +457,7 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
         {
             invalidateCapabilities();
             combinedInv = null;
+            this.getOrCreateCombinedInv();
         }
         if (!getLevel().isClientSide && colonyId == 0)
         {
@@ -586,58 +587,69 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
     {
         if (!remove && getBuilding() != null)
         {
-            if (combinedInv == null)
-            {
-                final Set<ICapabilityInvalidationListener> listeners = new HashSet<>();
+            return this.getOrCreateCombinedInv();
+        }
+        return super.getItemHandlerCap(side);
+    }
 
-                //Add additional containers
-                final Set<IItemHandlerModifiable> handlers = new LinkedHashSet<>();
-                final Level world = colony.getWorld();
-                if (world != null)
+    /**
+     * Gets the current combined inventory handler, or creates it if there is none.
+     *
+     * @return the combined inventory handler
+     */
+    private CombinedItemHandler getOrCreateCombinedInv() {
+        if (combinedInv != null)
+        {
+            return combinedInv;
+        }
+
+        final Set<ICapabilityInvalidationListener> listeners = new HashSet<>();
+
+        //Add additional containers
+        final Set<IItemHandlerModifiable> handlers = new LinkedHashSet<>();
+        final Level world = colony.getWorld();
+        if (world != null)
+        {
+            for (final BlockPos pos : building.getContainers())
+            {
+                if (WorldUtil.isBlockLoaded(world, pos) && !pos.equals(this.worldPosition))
                 {
-                    for (final BlockPos pos : building.getContainers())
+                    final BlockEntity te = world.getBlockEntity(pos);
+                    if (te != null)
                     {
-                        if (WorldUtil.isBlockLoaded(world, pos) && !pos.equals(this.worldPosition))
+                        if (te instanceof final AbstractTileEntityRack rack)
                         {
-                            final BlockEntity te = world.getBlockEntity(pos);
-                            if (te != null)
+                            handlers.add(rack.getInventory());
+                            rack.setBuildingPos(this.getBlockPos());
+                            if (world instanceof ServerLevel serverLevel)
                             {
-                                if (te instanceof final AbstractTileEntityRack rack)
-                                {
-                                    handlers.add(rack.getInventory());
-                                    rack.setBuildingPos(this.getBlockPos());
-                                    if (world instanceof ServerLevel serverLevel)
-                                    {
-                                        final ICapabilityInvalidationListener listener = () -> {
-                                            if (!WorldUtil.isBlockLoaded(world, this.getBlockPos()) || world.getBlockEntity(this.getBlockPos()) != this) {
-                                                return false;
-                                            }
-                                            this.combinedInv = null;
-                                            this.invalidateCapabilities();
-                                            // Always return false, invalidating our capability will register new listeners
-                                            return false;
-                                        };
-                                        listeners.add(listener);
-                                        serverLevel.registerCapabilityListener(pos, listener);
+                                final ICapabilityInvalidationListener listener = () -> {
+                                    if (!WorldUtil.isBlockLoaded(world, this.getBlockPos()) || world.getBlockEntity(this.getBlockPos()) != this) {
+                                        return false;
                                     }
-                                }
-                                else
-                                {
-                                    building.removeContainerPosition(pos);
-                                }
+                                    this.combinedInv = null;
+                                    this.invalidateCapabilities();
+                                    // Always return false, invalidating our capability will register new listeners
+                                    return false;
+                                };
+                                listeners.add(listener);
+                                serverLevel.registerCapabilityListener(pos, listener);
                             }
+                        }
+                        else
+                        {
+                            building.removeContainerPosition(pos);
                         }
                     }
                 }
-                handlers.add(this.getInventory());
-
-                combinedInv = new CombinedItemHandler(building.getSchematicName(), handlers.toArray(new IItemHandlerModifiable[0]));
-                // We need to keep a strong reference to these otherwise NeoForge's weak reference will be GCd
-                this.capabilityInvalidationListeners = listeners;
             }
-            return combinedInv;
         }
-        return super.getItemHandlerCap(side);
+        handlers.add(this.getInventory());
+
+        combinedInv = new CombinedItemHandler(building.getSchematicName(), handlers.toArray(new IItemHandlerModifiable[0]));
+        // We need to keep a strong reference to these otherwise NeoForge's weak reference will be GCd
+        this.capabilityInvalidationListeners = listeners;
+        return combinedInv;
     }
 
     @Nullable
