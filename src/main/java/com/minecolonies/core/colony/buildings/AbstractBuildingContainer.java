@@ -76,6 +76,11 @@ public abstract class AbstractBuildingContainer extends AbstractSchematicProvide
         super(pos, colony);
     }
 
+    /**
+     * Returns whether the container list has changed since the last invocation of this method.
+     *
+     * @return whether the container list has changed
+     */
     public boolean pollContainerListChanged()
     {
         if (containerListChanged)
