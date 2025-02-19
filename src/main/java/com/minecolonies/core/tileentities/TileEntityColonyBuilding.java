@@ -597,7 +597,8 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
      *
      * @return the combined inventory handler
      */
-    private CombinedItemHandler getOrCreateCombinedInv() {
+    private CombinedItemHandler getOrCreateCombinedInv()
+    {
         if (combinedInv != null)
         {
             return combinedInv;
