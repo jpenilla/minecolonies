@@ -24,6 +24,7 @@ import com.minecolonies.api.tileentities.MinecoloniesTileEntities;
 import com.minecolonies.api.util.ItemStackUtils;
 import com.minecolonies.api.util.WorldUtil;
 import com.minecolonies.core.colony.buildings.AbstractBuildingContainer;
+import java.util.HashSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -44,6 +45,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.neoforged.neoforge.capabilities.ICapabilityInvalidationListener;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.IItemHandlerModifiable;
 import org.jetbrains.annotations.NotNull;
@@ -115,6 +117,11 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
      * Create the combined inv wrapper for the building.
      */
     private CombinedItemHandler combinedInv;
+
+    /**
+     * Capability invalidation listeners for external inventories.
+     */
+    private Set<ICapabilityInvalidationListener> capabilityInvalidationListeners;
 
     /**
      * Pending blueprint future.
@@ -581,6 +588,8 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
         {
             if (combinedInv == null)
             {
+                final Set<ICapabilityInvalidationListener> listeners = new HashSet<>();
+
                 //Add additional containers
                 final Set<IItemHandlerModifiable> handlers = new LinkedHashSet<>();
                 final Level world = colony.getWorld();
@@ -599,15 +608,17 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
                                     rack.setBuildingPos(this.getBlockPos());
                                     if (world instanceof ServerLevel serverLevel)
                                     {
-                                        serverLevel.registerCapabilityListener(rack.getBlockPos(), () -> {
-                                            if (!WorldUtil.isBlockLoaded(world, pos) || world.getBlockEntity(pos) != te)
-                                            {
+                                        final ICapabilityInvalidationListener listener = () -> {
+                                            if (!WorldUtil.isBlockLoaded(world, this.getBlockPos()) || world.getBlockEntity(this.getBlockPos()) != this) {
                                                 return false;
                                             }
                                             this.combinedInv = null;
                                             this.invalidateCapabilities();
-                                            return true;
-                                        });
+                                            // Always return false, invalidating our capability will register new listeners
+                                            return false;
+                                        };
+                                        listeners.add(listener);
+                                        serverLevel.registerCapabilityListener(pos, listener);
                                     }
                                 }
                                 else
@@ -621,6 +632,8 @@ public class TileEntityColonyBuilding extends AbstractTileEntityColonyBuilding i
                 handlers.add(this.getInventory());
 
                 combinedInv = new CombinedItemHandler(building.getSchematicName(), handlers.toArray(new IItemHandlerModifiable[0]));
+                // We need to keep a strong reference to these otherwise NeoForge's weak reference will be GCd
+                this.capabilityInvalidationListeners = listeners;
             }
             return combinedInv;
         }
